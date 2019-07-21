@@ -1,0 +1,11 @@
+============================================== ReactJS cơ bản ==============================================
+ReactJS thông tin cơ bản
+
+  Enviroment:
+    Cần cài thêm nodejs: https://nodejs.org/en/ bởi vì trong quá trình làm việc với reactjs thì khi khởi tạo ứng dụng thì cần
+      dùng đến lệnh npm
+    Kiểm tra cài đặt bằng cách mở PowerShell lên và kiểm tra phiên bản
+      node -v
+      npm -v
+    https://reactjs.org/docs/getting-started.html
+    https://reactjs.org/docs/hello-world.html
