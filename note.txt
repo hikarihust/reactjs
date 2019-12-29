@@ -12,3 +12,6 @@ Hello
 		More Tools -> Extension
 	Hello.js
 	index.js: import Hello.js
+
+Tích hợp Bootstrap
+	download Bootstrap 3.3.7
