@@ -1,4 +1,5 @@
 import React from 'react';
+import Lesson from './Lesson'
 
 function Course() {
   return (
@@ -7,9 +8,9 @@ function Course() {
         <div className="panel-heading">ReactJs</div>
         <div className="panel-body">
           <ul className="list-group">
-            <li className="list-group-item">Item 1</li>
-            <li className="list-group-item">Item 2</li>
-            <li className="list-group-item">Item 3</li>
+            <Lesson />
+            <Lesson />
+            <Lesson />
           </ul>
         </div>
       </div>
