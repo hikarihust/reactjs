@@ -1,0 +1,14 @@
+=============================================== ReactJS cơ bản ===============================================
+Enviroment
+	Cài đặt nodejs: https://nodejs.org/ja/
+
+Hello
+	Install: Create a new React App
+		npx create-react-app ch01
+		cd ch01
+		npm start
+		Edit src/App.js and save to reload.
+	Cài đặt thêm Component mới đó là React Developer Tools
+		More Tools -> Extension
+	Hello.js
+	index.js: import Hello.js
