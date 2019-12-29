@@ -15,3 +15,6 @@ Hello
 
 Tích hợp Bootstrap
 	download Bootstrap 3.3.7
+
+Xây dựng Component
+	App
