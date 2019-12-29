@@ -20,3 +20,10 @@ Xây dựng Component
 	App
 	Course
 	Lesson
+	JSX
+		JSX - Javascript Syntax Extension
+		JSX - Javascript + XML cú pháp để thay thế Javascript, cách viết gần giống XML thay thế React.createElement()
+		JSX - Không phải là HTML
+		Keyword: JSX convert
+			https://magic.reactjs.net/htmltojsx.htm
+			https://babeljs.io/repl/
