@@ -27,3 +27,6 @@ Xây dựng Component
 		Keyword: JSX convert
 			https://magic.reactjs.net/htmltojsx.htm
 			https://babeljs.io/repl/
+
+Sử dụng Props, Event, Ref và State
+	Props
