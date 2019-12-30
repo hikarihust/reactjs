@@ -8,6 +8,7 @@ class Course extends Component {
 
     // This binding is necessary to make `this` work in the callback
     this.handleClick3 = this.handleClick3.bind(this);
+    this.registerCourse = this.registerCourse.bind(this);
   }
 
   handleClick1() {
@@ -26,17 +27,30 @@ class Course extends Component {
     return user.firstName + ' ' + user.lastName;
   }
 
+  registerCourse() {
+    console.log(this.refs.username.value);
+  }
+
   showButtonFree() {
     const isFree = this.props.free;
     console.log("isFree", isFree);
     if(isFree === true) {
-      return <div className="panel-footer">
-              <div className="btn-group">
-                <button type="button" onClick={ this.handleClick1 } className="btn btn-warning">view1</button>
-                <button type="button" onClick={ () => this.handleClick2("view 2") } className="btn btn-danger">view2</button>
-                <button type="button" onClick={ () => this.handleClick3() } className="btn btn-success">view3</button>
-              </div>
+      return (
+            <div className="btn-group">
+              <button type="button" onClick={ this.handleClick1 } className="btn btn-warning">view1</button>
+              <button type="button" onClick={ () => this.handleClick2("view 2") } className="btn btn-danger">view2</button>
+              <button type="button" onClick={ () => this.handleClick3() } className="btn btn-success">view3</button>
             </div>
+      )
+    } else {
+      return (
+          <div className="input-group">
+            <span className="input-group-btn">
+              <button onClick={ this.registerCourse } className="btn btn-info" type="button">Register</button>
+            </span>
+            <input type="text" className="form-control" placeholder="username..." ref="username" />
+          </div>
+      )
     }
   }
 
@@ -61,7 +75,9 @@ class Course extends Component {
               <Lesson />
             </ul>
           </div>
-          { this.showButtonFree() }
+          <div className="panel-footer">
+            { this.showButtonFree() }
+          </div>
         </div>
       </div>
     );
