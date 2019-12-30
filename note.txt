@@ -34,3 +34,20 @@ Sử dụng Props, Event, Ref và State
 	Event
 	Ref
 	State
+
+LifeCycle
+	npm install jquery --save
+	import $ from 'jquery';
+	Nhóm Mounting
+		constructor()
+		static getDerivedStateFromProps()
+		render()
+		componentDidMount()
+	Nhóm Updating
+		static getDerivedStateFromProps()
+		shouldComponentUpdate()
+		render()
+		getSnapshotBeforeUpdate()
+		componentDidUpdate()
+	Nhóm Unmounting
+		componentWillUnmount()
