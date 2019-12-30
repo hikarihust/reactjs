@@ -13,7 +13,7 @@ function App() {
     {
       name: 'Angular 4x',
       time: '50h',
-      free: false,
+      free: true,
     },
     {
       name: 'NodeJS',
