@@ -33,3 +33,4 @@ Sử dụng Props, Event, Ref và State
 	JSX Foreach
 	Event
 	Ref
+	State
