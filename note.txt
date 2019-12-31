@@ -51,3 +51,8 @@ LifeCycle
 		componentDidUpdate()
 	Nhóm Unmounting
 		componentWillUnmount()
+
+=============================================== Xây dựng Project TodoList ===============================================
+
+Xây dựng và tích hợp giao diện
+	
