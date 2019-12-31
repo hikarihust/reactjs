@@ -56,3 +56,4 @@ LifeCycle
 
 Xây dựng và tích hợp giao diện
 	
+Phân chia Component của ứng dụng
