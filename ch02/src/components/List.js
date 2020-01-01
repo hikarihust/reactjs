@@ -15,7 +15,7 @@ class List extends Component {
         const  items   = this.props.items;
         const elemItem = items.map((item, index) => {
             return (
-                <Item key={index} /> 
+                <Item key={index} item={item} index={ index } /> 
             );
         });
 

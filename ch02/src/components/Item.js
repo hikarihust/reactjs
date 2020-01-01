@@ -12,17 +12,29 @@ class Item extends Component {
     }
 
     render() {
+        const { item, index } = this.props;
+
         return (
             <tr>
-                <td className="text-center">1</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-                <td className="text-center"><span className="badge badge-info">Medium</span></td>
+                <td className="text-center"> { index+1 } </td>
+                <td>{ item.name }</td>
+                <td className="text-center">{ this.showElementLevel(item.level) }</td>
                 <td>
                     <button type="button" className="btn btn-warning">Edit</button>
                     <button type="button" className="btn btn-danger">Delete</button>
                 </td>
             </tr>
         );
+    }
+
+    showElementLevel(level){
+        let elemLevel = <span className="badge badge-secondary">Small</span>;
+        if(level === 1) {
+            elemLevel = <span className="badge badge-info">Medium</span>;
+        } else if(level === 2) {
+            elemLevel = <span className="badge badge-danger">High</span>;
+        } 
+        return elemLevel;
     }
 }
 
