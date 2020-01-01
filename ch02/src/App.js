@@ -13,16 +13,24 @@ class App extends Component {
 
     this.state = {
       items: tasks,
-      isShowForm: false
+      isShowForm: false,
+      strSearch: ''
     };
 
     this.handleToggleForm = this.handleToggleForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleToggleForm() {
     this.setState({
       isShowForm: !this.state.isShowForm
+    })
+  }
+
+  handleSearch(value) {
+    this.setState({
+      strSearch: value
     })
   }
 
@@ -33,6 +41,7 @@ class App extends Component {
   }
  
   render() {
+    console.log(this.state.strSearch);
     let items = this.state.items;
     let isShowForm = this.state.isShowForm;
     let elmForm = null;
@@ -48,7 +57,9 @@ class App extends Component {
       <div>
         <Title />
         <div className="row">
-          <Control />
+          <Control 
+            onClickSearchGo={ this.handleSearch }
+          />
           <div className="col-12 col-lg-6">
             <div className="form-group add-task">
             { elmButton }
