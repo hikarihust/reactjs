@@ -67,3 +67,4 @@ Hiển thị danh sách các Item
 Form Toogle
 	Add Task
 	Close Form
+	Cancel

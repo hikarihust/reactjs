@@ -17,11 +17,18 @@ class App extends Component {
     };
 
     this.handleToggleForm = this.handleToggleForm.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   handleToggleForm() {
     this.setState({
       isShowForm: !this.state.isShowForm
+    })
+  }
+
+  closeForm() {
+    this.setState({
+      isShowForm: false
     })
   }
  
@@ -32,7 +39,7 @@ class App extends Component {
     let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
 
     if(isShowForm) {
-      elmForm = <Form />;
+      elmForm = <Form onClickCancel={ this.closeForm } />;
       elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-success btn-block">Edit Task</button>;
     }
     
