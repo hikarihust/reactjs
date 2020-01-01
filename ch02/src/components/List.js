@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Item from './Item';
 
 class List extends Component {
     constructor(props) {
@@ -25,33 +26,9 @@ class List extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td className="text-center">1</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-                    <td className="text-center"><span className="badge badge-danger">High</span></td>
-                    <td>
-                        <button type="button" className="btn btn-warning">Edit</button>
-                        <button type="button" className="btn btn-danger">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td className="text-center">2</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-                    <td className="text-center"><span className="badge badge-secondary">Small</span></td>
-                    <td>
-                        <button type="button" className="btn btn-warning">Edit</button>
-                        <button type="button" className="btn btn-danger">Delete</button>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td className="text-center">3</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-                    <td className="text-center"><span className="badge badge-info">Medium</span></td>
-                    <td>
-                        <button type="button" className="btn btn-warning">Edit</button>
-                        <button type="button" className="btn btn-danger">Delete</button>
-                    </td>
-                    </tr>
+                    <Item />
+                    <Item />
+                    <Item />
                 </tbody>
                 </table>
             </div>
