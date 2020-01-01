@@ -29,10 +29,13 @@ class App extends Component {
     let items = this.state.items;
     let isShowForm = this.state.isShowForm;
     let elmForm = null;
+    let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
 
     if(isShowForm) {
       elmForm = <Form />;
+      elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-success btn-block">Edit Task</button>;
     }
+    
 
     return (
       <div>
@@ -41,7 +44,7 @@ class App extends Component {
           <Control />
           <div className="col-12 col-lg-6">
             <div className="form-group add-task">
-            <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>
+            { elmButton }
             </div>
               { elmForm }
           </div>
