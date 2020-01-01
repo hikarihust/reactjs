@@ -9,10 +9,16 @@ class List extends Component {
            
         };
 
-        // props.onClickEdit = App.handleEdit
     }
 
     render() {
+        const  items   = this.props.items;
+        const elemItem = items.map((item, index) => {
+            return (
+                <Item key={index} /> 
+            );
+        });
+
         return (
             <div className="panel panel-success">
                 <div className="panel-heading">List Task</div>
@@ -26,9 +32,7 @@ class List extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <Item />
-                    <Item />
-                    <Item />
+                    { elemItem }
                 </tbody>
                 </table>
             </div>
