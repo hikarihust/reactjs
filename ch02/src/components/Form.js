@@ -10,13 +10,7 @@ class Form extends Component {
 
     render() {
         return (
-            <div className="col-12 col-lg-6">
-                {/* ADD : START */}
-                <div className="form-group add-task">
-                <button type="button" className="btn btn-info btn-block">Add Task</button>
-                </div>
-                {/* ADD : END */}
-                <form action method="POST" className="form-inline justify-content-between">
+            <form action method="POST" className="form-inline justify-content-between">
                 <div className="form-group">
                     <label className="sr-only" htmlFor>label</label>
                     <input type="text" className="form-control" placeholder="Task Name" />
@@ -31,8 +25,7 @@ class Form extends Component {
                 </div>
                 <button type="button" className="btn btn-primary">Submit</button>
                 <button type="button" className="btn btn-secondary">Cancel</button>
-                </form>
-            </div>
+            </form>
         );
     }
 }

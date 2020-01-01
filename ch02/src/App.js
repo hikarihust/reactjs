@@ -12,22 +12,41 @@ class App extends Component {
     super(props);
 
     this.state = {
-      items: tasks
+      items: tasks,
+      isShowForm: false
     };
+
+    this.handleToggleForm = this.handleToggleForm.bind(this);
+  }
+
+  handleToggleForm() {
+    this.setState({
+      isShowForm: !this.state.isShowForm
+    })
   }
  
   render() {
     let items = this.state.items;
+    let isShowForm = this.state.isShowForm;
+    let elmForm = null;
+
+    if(isShowForm) {
+      elmForm = <Form />;
+    }
 
     return (
       <div>
         <Title />
         <div className="row">
           <Control />
-          <Form />
+          <div className="col-12 col-lg-6">
+            <div className="form-group add-task">
+            <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>
+            </div>
+              { elmForm }
+          </div>
         </div>
         <List items={ items } />
-
       </div>
     );
   }
