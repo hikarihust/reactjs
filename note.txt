@@ -60,3 +60,5 @@ Phân chia Component của ứng dụng
 
 Hiển thị danh sách các Item 
 	Mock data
+	uuid
+		npm install uuid
