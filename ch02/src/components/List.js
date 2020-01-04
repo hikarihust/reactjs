@@ -17,6 +17,7 @@ class List extends Component {
             return (
                 <Item 
                     key={index} item={item} index={ index } 
+                    onClickEdit={ this.props.onClickEdit }
                     onClickDelete={ this.props.onClickDelete }
                 /> 
             );

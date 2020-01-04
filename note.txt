@@ -74,13 +74,16 @@ Xây dựng chức năng Search
 	Search
 		https://lodash.com/
 		js check string contains
+	lodash -> filter,includes
 
 Xây dựng chức năng Sort
 	Sua giao dien
 	Show Sort
 	Sort
+	lodash -> orderBy
 
 Xây dựng chức năng Delete
+	lodash -> remove
 
 Xây dựng chức năng Add
 	Form - Text
@@ -88,3 +91,6 @@ Xây dựng chức năng Add
 	Form - Radio
 	Form - Checkbox
 	Add
+
+Xây dựng chức năng Edit
+	lodash update object in array -> reject method

@@ -4,7 +4,7 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
-import { filter, includes, orderBy as funcOrderBy, remove } from 'lodash';
+import { filter, includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
 
 import tasks from './mocks/tasks'
 import Search from './components/Search';
@@ -17,6 +17,7 @@ class App extends Component {
 
     this.state = {
       items: tasks,
+      itemSelected: null,
       isShowForm: false,
       strSearch: '',
       orderBy: 'name',
@@ -29,13 +30,21 @@ class App extends Component {
     this.handleSort = this.handleSort.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleSubmit(item) {
-    console.log(item);
-    let { items } = this.state;
+    let items = [...this.state.items];
+    let id = null;
+    if(item.id) { // Edit
+      items = reject(items, { id: item.id });
+      id = item.id;
+    } else { // Add
+      id = uuidv4();
+    }
+
     items.push({
-      id      : uuidv4(),
+      id      : id,
       name    : item.name,
       level   : +item.level // 0 Small, 1 Medium, 2 High
     });
@@ -43,6 +52,13 @@ class App extends Component {
     this.setState({
       items: items,
       isShowForm: false
+    });
+  }
+
+  handleEdit(item) {
+    this.setState({
+      itemSelected: item,
+      isShowForm: true
     });
   }
 
@@ -65,7 +81,8 @@ class App extends Component {
 
   handleToggleForm() {
     this.setState({
-      isShowForm: !this.state.isShowForm
+      isShowForm: !this.state.isShowForm,
+      itemSelected: null
     })
   }
 
@@ -86,7 +103,7 @@ class App extends Component {
     let items       = [];
     let elmForm = null;
     let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
-    let { orderBy, orderDir, isShowForm, strSearch } = this.state;
+    let { orderBy, orderDir, isShowForm, strSearch, itemSelected } = this.state;
 
     // Search
     // if(search.length > 0) {
@@ -106,7 +123,7 @@ class App extends Component {
     items = funcOrderBy(items, [ orderBy ], [ orderDir ])
 
     if(isShowForm) {
-      elmForm = <Form onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />;
+      elmForm = <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />;
       elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-success btn-block">Edit Task</button>;
     }
     
@@ -129,6 +146,7 @@ class App extends Component {
           </div>
         </div>
         <List
+          onClickEdit={ this.handleEdit }
           onClickDelete={ this.handleDelete }
           items={ items } 
         />

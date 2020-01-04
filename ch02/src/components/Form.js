@@ -5,7 +5,7 @@ class Form extends Component {
         super(props);
 
         this.state = {
-            // task_id: '',
+            task_id: '',
             task_name: '',
             task_level: 0
         };
@@ -15,6 +15,27 @@ class Form extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    UNSAFE_componentWillMount(){
+        let item = this.props.itemSelected;
+        if(item) {
+            this.setState({
+                task_id: item.id,
+                task_name: item.name,
+                task_level: item.level,
+            });
+        }
+    }
+
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        if(nextProps.itemSelected) {
+            let item = nextProps.itemSelected;
+            this.setState({
+                task_id: item.id,
+                task_name: item.name,
+                task_level: item.level,
+            });
+        }
+    }
 
     handleChange(event) {
         const target = event.target;
@@ -29,6 +50,7 @@ class Form extends Component {
     handleSubmit(event) {
         let item = {
             name: this.state.task_name,
+            id: this.state.task_id,
             level: this.state.task_level
         };
         this.props.onClickSubmit(item);
@@ -44,12 +66,12 @@ class Form extends Component {
             <form onSubmit={this.handleSubmit} className="form-inline justify-content-between">
                 <div className="form-group">
                     <label className="sr-only" htmlFor>label</label>
-                    <input value={this.state.task_name} onChange={this.handleChange} name="task_name" type="text" className="form-control" placeholder="Task Name" />
+                    <input value={ this.state.task_name } onChange={this.handleChange} name="task_name" type="text" className="form-control" placeholder="Task Name" />
                 </div>
 
                 <div className="form-group">
                     <label className="sr-only" htmlFor>label</label>
-                    <select value={this.state.task_level} onChange={this.handleChange} name="task_level" className="form-control" required="required">
+                    <select value={ this.state.task_level } onChange={this.handleChange} name="task_level" className="form-control" required="required">
                         <option value={0}>Small</option>
                         <option value={1}>Medium</option>
                         <option value={2}>High</option>
