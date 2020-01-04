@@ -85,3 +85,4 @@ Xây dựng chức năng Delete
 Xây dựng chức năng Add
 	Form - Text
 	Form - Select
+	Form - Radio

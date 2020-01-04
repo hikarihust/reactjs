@@ -8,7 +8,8 @@ class StudyForm extends Component {
 
         this.state = {
             fullname: '',
-            course  : 'php'
+            course  : 'php',
+            object  : 'student'
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -61,17 +62,17 @@ class StudyForm extends Component {
                                 <label htmlFor>Đối tượng</label>
                                 <div className="radio">
                                     <label>
-                                        <input value="old_student" type="radio" name="object"/>Học viên cũ
+                                        <input onChange={this.handleChange} checked={this.state.object === 'old_student'} value="old_student" type="radio" name="object"/>Học viên cũ
                                     </label>
                                 </div>
                                 <div className="radio">
                                     <label>
-                                        <input value="student"  type="radio" name="object"/>Học sinh Sinh viên
+                                        <input onChange={this.handleChange} checked={this.state.object === 'student'} value="student"  type="radio" name="object"/>Học sinh Sinh viên
                                     </label>
                                 </div>
                                 <div className="radio">
                                     <label>
-                                        <input type="radio" name="object"/>Người khuyết tật
+                                        <input onChange={this.handleChange} checked={this.state.object === 'nkt'} value="nkt" type="radio" name="object"/>Người khuyết tật
                                     </label>
                                 </div>
                             </div>
