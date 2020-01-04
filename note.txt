@@ -78,3 +78,4 @@ Xây dựng chức năng Search
 Xây dựng chức năng Sort
 	Sua giao dien
 	Show Sort
+	Sort

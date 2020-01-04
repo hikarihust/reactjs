@@ -4,7 +4,7 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
-import { filter, includes } from 'lodash';
+import { filter, includes, orderBy as funcOrderBy } from 'lodash';
 
 import tasks from './mocks/tasks'
 import Search from './components/Search';
@@ -72,6 +72,9 @@ class App extends Component {
     items = filter(itemsOrigin, (item) => {
       return includes(item.name.toLowerCase(), strSearch.toLowerCase());
     });
+
+    // Sort
+    items = funcOrderBy(items, [ orderBy ], [ orderDir ])
 
     if(isShowForm) {
       elmForm = <Form onClickCancel={ this.closeForm } />;
