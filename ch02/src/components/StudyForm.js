@@ -8,6 +8,7 @@ class StudyForm extends Component {
 
         this.state = {
             fullname: '',
+            course  : 'php'
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -15,9 +16,13 @@ class StudyForm extends Component {
     }
 
     handleChange(event) {
+        const target = event.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
+        const name = target.name;
     
         this.setState({
-            fullname: event.target.value
+          [name]: value
         });
     }
 
@@ -44,7 +49,7 @@ class StudyForm extends Component {
 
                             <div className="form-group">
                                 <label htmlFor>Khóa học</label>
-                                <select value="" onChange={this.handleChange} name="course" id="input" className="form-control" required="required">
+                                <select value={this.state.course} onChange={this.handleChange} name="course" id="input" className="form-control" required="required">
                                     <option value="angular">Angular</option>
                                     <option value="react">React</option>
                                     <option value="nodejs">NodeJS</option>
