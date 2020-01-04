@@ -4,8 +4,10 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
+import { filter, includes } from 'lodash';
 
 import tasks from './mocks/tasks'
+import Search from './components/Search';
 
 class App extends Component {
   constructor(props) {
@@ -41,11 +43,26 @@ class App extends Component {
   }
  
   render() {
-    console.log(this.state.strSearch);
-    let items = this.state.items;
+    let itemsOrigin = [...this.state.items];
+    let items       = [];
     let isShowForm = this.state.isShowForm;
     let elmForm = null;
     let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
+    const search = this.state.strSearch;
+
+    // Search
+    // if(search.length > 0) {
+    //   itemsOrigin.forEach((item) => {
+    //     if(item.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1) {
+    //       items.push(item);
+    //     }
+    //   })
+    // } else {
+    //   items = itemsOrigin;
+    // }
+    items = filter(itemsOrigin, (item) => {
+      return includes(item.name.toLowerCase(), search.toLowerCase());
+    });
 
     if(isShowForm) {
       elmForm = <Form onClickCancel={ this.closeForm } />;

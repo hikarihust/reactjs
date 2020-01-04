@@ -21,7 +21,7 @@ class Search extends Component {
         this.setState({
             strSearch: ''
         })
-        this.props.onClickGo(this.state.strSearch);
+        this.props.onClickGo('');
     }
 
     handleChange(event) {

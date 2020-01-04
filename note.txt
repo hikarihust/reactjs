@@ -71,3 +71,6 @@ Form Toogle
 
 Xây dựng chức năng Search
 	State strSearch
+	Search
+		https://lodash.com/
+		js check string contains
