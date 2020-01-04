@@ -47,13 +47,9 @@ class App extends Component {
   render() {
     let itemsOrigin = [...this.state.items];
     let items       = [];
-    let isShowForm = this.state.isShowForm;
     let elmForm = null;
     let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
-    let orderBy = this.state.orderBy;
-    let orderDir = this.state.orderDir;
-
-    const search = this.state.strSearch;
+    let { orderBy, orderDir, isShowForm, strSearch } = this.state;
 
     // Search
     // if(search.length > 0) {
@@ -66,7 +62,7 @@ class App extends Component {
     //   items = itemsOrigin;
     // }
     items = filter(itemsOrigin, (item) => {
-      return includes(item.name.toLowerCase(), search.toLowerCase());
+      return includes(item.name.toLowerCase(), strSearch.toLowerCase());
     });
 
     if(isShowForm) {
@@ -79,7 +75,9 @@ class App extends Component {
       <div>
         <Title />
         <div className="row">
-          <Control 
+          <Control
+            orderBy={ orderBy } 
+            orderDir={ orderDir } 
             onClickSearchGo={ this.handleSearch }
           />
           <div className="col-12 col-lg-6">

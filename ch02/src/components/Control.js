@@ -12,10 +12,14 @@ class Control extends Component {
     }
 
     render() {
+        let { orderBy, orderDir } = this.props;
         return (
             <div className="col-12 col-lg-6">
                 <div className="row">
-                    <Sort />
+                    <Sort 
+                        orderBy={ orderBy } 
+                        orderDir={ orderDir } 
+                    />
                     <Search onClickGo={this.props.onClickSearchGo} />
                 </div>
             </div>
