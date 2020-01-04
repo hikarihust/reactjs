@@ -28,6 +28,10 @@ class App extends Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  handleSubmit(item) {
+    console.log(item);
+  }
+
   handleDelete(id) {
     let items = this.state.items;
     remove(items, (item)=> {
@@ -88,7 +92,7 @@ class App extends Component {
     items = funcOrderBy(items, [ orderBy ], [ orderDir ])
 
     if(isShowForm) {
-      elmForm = <Form onClickCancel={ this.closeForm } />;
+      elmForm = <Form onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />;
       elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-success btn-block">Edit Task</button>;
     }
     
