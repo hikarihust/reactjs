@@ -17,6 +17,7 @@ class Control extends Component {
             <div className="col-12 col-lg-6">
                 <div className="row">
                     <Sort 
+                        onClickSort={ this.props.onClickSort }
                         orderBy={ orderBy } 
                         orderDir={ orderDir } 
                     />

@@ -24,7 +24,15 @@ class App extends Component {
     this.handleToggleForm = this.handleToggleForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
+
+  handleSort = (orderBy, orderDir) => {
+    this.setState({
+        orderBy: orderBy,
+        orderDir: orderDir
+    });
+}
 
   handleToggleForm() {
     this.setState({
@@ -78,6 +86,7 @@ class App extends Component {
           <Control
             orderBy={ orderBy } 
             orderDir={ orderDir } 
+            onClickSort={ this.handleSort }
             onClickSearchGo={ this.handleSearch }
           />
           <div className="col-12 col-lg-6">
