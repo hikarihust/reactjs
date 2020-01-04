@@ -9,7 +9,8 @@ class StudyForm extends Component {
         this.state = {
             fullname: '',
             course  : 'php',
-            object  : 'student'
+            object  : 'student',
+            sendMail: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -18,8 +19,7 @@ class StudyForm extends Component {
 
     handleChange(event) {
         const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        const value = target.value;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
     
         this.setState({
@@ -75,6 +75,12 @@ class StudyForm extends Component {
                                         <input onChange={this.handleChange} checked={this.state.object === 'nkt'} value="nkt" type="radio" name="object"/>Người khuyết tật
                                     </label>
                                 </div>
+                            </div>
+
+                            <div className="checkbox">
+                                <label>
+                                    <input onChange={this.handleChange} checked={this.state.sendMail} name="sendMail" type="checkbox" /> Send mail
+                                </label>
                             </div>
 
                             <button type="submit" className="btn btn-primary">Submit</button>
