@@ -16,7 +16,9 @@ class App extends Component {
     this.state = {
       items: tasks,
       isShowForm: false,
-      strSearch: ''
+      strSearch: '',
+      orderBy: 'name',
+      orderDir: 'asc'
     };
 
     this.handleToggleForm = this.handleToggleForm.bind(this);
@@ -48,6 +50,9 @@ class App extends Component {
     let isShowForm = this.state.isShowForm;
     let elmForm = null;
     let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
+    let orderBy = this.state.orderBy;
+    let orderDir = this.state.orderDir;
+
     const search = this.state.strSearch;
 
     // Search

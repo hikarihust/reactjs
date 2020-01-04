@@ -14,16 +14,18 @@ class Sort extends Component {
             <div className="col-12">
                 <div className="form-group">
                 <div className="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort by
                     </button>
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Name ASC</a>
-                    <a className="dropdown-item" href="#">Name DESC</a>
-                    <div className="dropdown-divider" />
-                    <a className="dropdown-item" href="#">Level ASC</a>
-                    <a className="dropdown-item" href="#">Level DESC</a>
-                    </div>
+                    {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton"> */}
+
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a role="button">Name ASC</a></li>
+                        <li><a role="button">Name DESC</a></li>
+                        <li role="separator" className="divider" />
+                        <li><a role="button">Level ASC</a></li>
+                        <li><a role="button">Level DESC</a></li>
+                    </ul>
                     <span className="badge badge-success badge-medium">NAME - DESC</span>
                 </div>
                 </div>

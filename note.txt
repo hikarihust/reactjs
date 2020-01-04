@@ -74,3 +74,6 @@ Xây dựng chức năng Search
 	Search
 		https://lodash.com/
 		js check string contains
+
+Xây dựng chức năng Sort
+	'Sua giao dien'
