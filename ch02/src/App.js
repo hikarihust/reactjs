@@ -4,7 +4,7 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
-import { filter, includes, orderBy as funcOrderBy } from 'lodash';
+import { filter, includes, orderBy as funcOrderBy, remove } from 'lodash';
 
 import tasks from './mocks/tasks'
 import Search from './components/Search';
@@ -25,6 +25,17 @@ class App extends Component {
     this.closeForm = this.closeForm.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSort = this.handleSort.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(id) {
+    let items = this.state.items;
+    remove(items, (item)=> {
+        return item.id === id;
+    });
+    this.setState({
+        items: items
+    });
   }
 
   handleSort = (orderBy, orderDir) => {
@@ -99,7 +110,10 @@ class App extends Component {
               { elmForm }
           </div>
         </div>
-        <List items={ items } />
+        <List
+          onClickDelete={ this.handleDelete }
+          items={ items } 
+        />
       </div>
     );
   }

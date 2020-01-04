@@ -79,3 +79,5 @@ Xây dựng chức năng Sort
 	Sua giao dien
 	Show Sort
 	Sort
+
+Xây dựng chức năng Delete
