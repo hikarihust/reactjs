@@ -87,3 +87,4 @@ Xây dựng chức năng Add
 	Form - Select
 	Form - Radio
 	Form - Checkbox
+	Add
