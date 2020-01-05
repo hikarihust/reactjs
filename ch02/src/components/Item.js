@@ -9,7 +9,7 @@ class Item extends Component {
         };
 
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleDelete = this.handleEdit.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
     handleEdit(item){
