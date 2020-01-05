@@ -16,19 +16,15 @@ class Form extends Component {
     }
 
     UNSAFE_componentWillMount(){
-        let item = this.props.itemSelected;
-        if(item) {
-            this.setState({
-                task_id: item.id,
-                task_name: item.name,
-                task_level: item.level,
-            });
-        }
+        this.updateItem(this.props.itemSelected);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
-        if(nextProps.itemSelected) {
-            let item = nextProps.itemSelected;
+        this.updateItem(nextProps.itemSelected);
+    }
+
+    updateItem(item){
+        if(item) {
             this.setState({
                 task_id: item.id,
                 task_name: item.name,

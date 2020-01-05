@@ -12,19 +12,29 @@ import Search from './components/Search';
 const uuidv4 = require('uuid/v4');
 
 class App extends Component {
+
+  state = {
+    items: [],
+    itemSelected: null,
+    isShowForm: false,
+    strSearch: '',
+    orderBy: 'name',
+    orderDir: 'asc'
+  };
+
   constructor(props) {
     super(props);
 
-    this.state = {
-      items: [],
-      itemSelected: null,
-      isShowForm: false,
-      strSearch: '',
-      orderBy: 'name',
-      orderDir: 'asc'
-    };
+    // this.state = {
+    //   items: [],
+    //   itemSelected: null,
+    //   isShowForm: false,
+    //   strSearch: '',
+    //   orderBy: 'name',
+    //   orderDir: 'asc'
+    // };
 
-    this.handleToggleForm = this.handleToggleForm.bind(this);
+    // this.handleToggleForm = this.handleToggleForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSort = this.handleSort.bind(this);
@@ -92,7 +102,7 @@ class App extends Component {
     });
 }
 
-  handleToggleForm() {
+  handleToggleForm = () => {
     this.setState({
       isShowForm: !this.state.isShowForm,
       itemSelected: null

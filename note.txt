@@ -96,3 +96,5 @@ Xây dựng chức năng Edit
 	lodash update object in array -> reject method
 
 Sử dụng LocalStorage
+
+Tối ưu ứng dụng
