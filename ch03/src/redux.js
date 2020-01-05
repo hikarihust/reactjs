@@ -1,33 +1,6 @@
 import { createStore } from 'redux'
-import { actCloseForm, actOpenForm, actToggleForm } from './actions'
-
-let defaultState = {
-    items       : [],
-    isShowForm  : true,
-    strSearch   : '',
-    orderBy     : 'name',
-    orderDir    : 'asc',
-    itemSelected: null
-}
-
-let appReducers = (state = defaultState, action) => {
-    switch(action.type) {
-        case 'close_form':
-            state.isShowForm = false;
-            return state;
-
-        case 'open_form':
-            state.isShowForm = true;
-            return state;
-
-        case 'toggle_form':
-            state.isShowForm = !state.isShowForm;
-            return state;
-
-        default:
-            return state;
-    }
-} 
+import appReducers from './reducers'
+import { actCloseForm, actOpenForm, actToggleForm, actSort } from './actions'
 
 const store = createStore(appReducers);
 console.log("Init: ", store.getState());
@@ -44,4 +17,7 @@ console.log('open_form', store.getState());
 store.dispatch(actToggleForm());
 console.log('toggle_form', store.getState());
 
+// CHANGE SORT
+store.dispatch(actSort('level', 'desc'));
+console.log("SORT_ITEM: ", store.getState());
 export default store;
