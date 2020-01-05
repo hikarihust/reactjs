@@ -118,3 +118,5 @@ Publish ứng dụng
 Sử dụng Redux
 	TodoList on v16 - init
 		npx create-react-app ch03
+
+	TodoList on v16
