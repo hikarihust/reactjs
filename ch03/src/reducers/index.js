@@ -1,34 +1,18 @@
-const defaultState = {
-    items       : [],
-    isShowForm  : true,
-    strSearch   : '',
-    orderBy     : 'name',
-    orderDir    : 'asc',
-    itemSelected: null
-}
+import { combineReducers } from 'redux';
+import isShowForm from './isShowForm'
+import sort from './sort'
 
-const appReducers = (state = defaultState, action) => {
-    switch(action.type) {
-        case 'close_form':
-            state.isShowForm = false;
-            return state;
+// const defaultState = {
+//     items       : [],
+//     isShowForm  : true,
+//     strSearch   : '',
+//     sort: { orderBy: 'name', orderDir: 'desc' },
+//     itemSelected: null
+// }
 
-        case 'open_form':
-            state.isShowForm = true;
-            return state;
-
-        case 'toggle_form':
-            state.isShowForm = !state.isShowForm;
-            return state;
-
-        case 'sort_item':
-            state.orderBy = action.orderBy;
-            state.orderDir = action.orderDir;
-            return state;
-
-        default:
-            return state;
-    }
-} 
+const appReducers = combineReducers({
+	isShowForm,
+	sort
+});
 
 export default appReducers;
