@@ -151,3 +151,4 @@ Sử dụng Redux
 		redux
 		npm install --save redux
 		Tạo ra từng tập tin reducer riêng, mỗi tập tin sẽ tương tác với từng phần tử riêng
+		subscribe() -> Lắng nghe khi store có sự thay đổi

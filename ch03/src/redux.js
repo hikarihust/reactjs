@@ -5,6 +5,8 @@ import { actCloseForm, actOpenForm, actToggleForm, actSort } from './actions'
 const store = createStore(appReducers);
 console.log("Init: ", store.getState());
 
+store.subscribe(() => console.log(store.getState()))
+
 // Action close_form
 store.dispatch(actCloseForm());
 console.log('close_form', store.getState());
