@@ -120,3 +120,29 @@ Sử dụng Redux
 		npx create-react-app ch03
 
 	TodoList on v16
+
+	Why Redux
+		App
+			Title
+			Control	
+				Search
+				Sort
+					X
+						Y
+							Z
+				Add
+			Form
+			List
+				Item
+		SORT -> CONTROL -> APP
+			-> handleSort 
+			-> CONTROL onClickSort={this.props.onClickSort} 
+			-> onClickSort={this.handleSort} 
+			-> APP handleSort 
+			-> orderBy, orderDir
+
+		Redux
+			store
+			reducer
+			action
+			state
