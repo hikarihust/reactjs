@@ -112,3 +112,9 @@ Publish ứng dụng
 					DocumentRoot C:/xampp/htdocs/todolist
 					ServerName todolistquang.dev
 			</VirtualHost>
+
+=============================================== Sử dụng Redux với Project TodoList ===============================================
+
+Sử dụng Redux
+	TodoList on v16 - init
+		npx create-react-app ch03
