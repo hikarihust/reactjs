@@ -98,3 +98,17 @@ Xây dựng chức năng Edit
 Sử dụng LocalStorage
 
 Tối ưu ứng dụng
+
+Publish ứng dụng
+	reactjs build production
+	npm run build
+	-> Có được folder build -> đổi tên thành todolist
+	Start Xampp
+	Cấu hình Virtual host trên Xampp
+		Xampp create Virtual host
+			C:/xampp/apache/conf/extra/httpd-vhosts.conf
+			Bật NameVirtualHost *:80
+			<VirtualHost *:80>
+					DocumentRoot C:/xampp/htdocs/todolist
+					ServerName todolistquang.dev
+			</VirtualHost>
