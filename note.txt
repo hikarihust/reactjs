@@ -159,3 +159,4 @@ Sử dụng Redux
 Hiển thị danh sách các Item với Redux
 	phan 1
 		npm install --save react-redux
+	phan 2

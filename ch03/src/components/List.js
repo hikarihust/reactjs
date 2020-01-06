@@ -13,17 +13,21 @@ class List extends Component {
     }
 
     render() {
-        console.log(this.props.tasks);
-        const  items   = this.props.items;
-        const elemItem = items.map((item, index) => {
-            return (
-                <Item 
-                    key={index} item={item} index={ index } 
-                    onClickEdit={ this.props.onClickEdit }
-                    onClickDelete={ this.props.onClickDelete }
-                /> 
-            );
-        });
+        const  { items }   = this.props;
+        let elemItem = <tr><th colSpan={4}>Khong co cong viec</th></tr>;
+
+        if(items.length > 0) {
+            elemItem = items.map((item, index) => {
+                return (
+                    <Item 
+                        key={index} item={item} index={ index } 
+                        onClickEdit={ this.props.onClickEdit }
+                        onClickDelete={ this.props.onClickDelete }
+                    /> 
+                );
+            });
+        }
+
 
         return (
             <div className="panel panel-success">
@@ -48,7 +52,7 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-        tasks: state.items
+        items: state.items
     }
 }
 
