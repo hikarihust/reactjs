@@ -1,8 +1,7 @@
-const defaultState = [
-    { id: "A1", name: "Coding Store", level: 0 },
-    { id: "A2", name: "Football Store", level: 1 },
-    { id: "A3", name: "Watch TV Store", level: 2 }
-];
+let defaultState = [];
+
+let tasks = JSON.parse(localStorage.getItem('task'));
+defaultState = (tasks) ? tasks : defaultState;
 
 const items = (state = defaultState, action) => {
     switch(action.type) {

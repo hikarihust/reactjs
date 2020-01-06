@@ -160,3 +160,4 @@ Hiển thị danh sách các Item với Redux
 	phan 1
 		npm install --save react-redux
 	phan 2
+	phan 3
