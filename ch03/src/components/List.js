@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import Item from './Item';
 
 class List extends Component {
@@ -12,6 +13,7 @@ class List extends Component {
     }
 
     render() {
+        console.log(this.props.tasks);
         const  items   = this.props.items;
         const elemItem = items.map((item, index) => {
             return (
@@ -44,4 +46,10 @@ class List extends Component {
     }
 }
 
-export default List;
+const mapStateToProps = state => {
+    return {
+        tasks: state.items
+    }
+}
+
+export default connect(mapStateToProps, null)(List);

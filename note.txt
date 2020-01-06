@@ -155,3 +155,7 @@ Sử dụng Redux
 
 	Redux DevTool
 		Redux Extension
+
+Hiển thị danh sách các Item với Redux
+	phan 1
+		npm install --save react-redux
