@@ -4,6 +4,7 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
+import ToggleForm from './components/ToggleForm';
 import { filter, includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
 
 // import tasks from './mocks/tasks'
@@ -34,7 +35,6 @@ class App extends Component {
     //   orderDir: 'asc'
     // };
 
-    // this.handleToggleForm = this.handleToggleForm.bind(this);
     this.closeForm = this.closeForm.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSort = this.handleSort.bind(this);
@@ -102,13 +102,6 @@ class App extends Component {
     });
 }
 
-  handleToggleForm = () => {
-    this.setState({
-      isShowForm: !this.state.isShowForm,
-      itemSelected: null
-    })
-  }
-
   handleSearch(value) {
     this.setState({
       strSearch: value
@@ -125,7 +118,6 @@ class App extends Component {
     let itemsOrigin = [...this.state.items];
     let items       = [];
     let elmForm = null;
-    let elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-info btn-block">Add Task</button>;
     let { orderBy, orderDir, isShowForm, strSearch, itemSelected } = this.state;
 
     // Search
@@ -147,10 +139,8 @@ class App extends Component {
 
     if(isShowForm) {
       elmForm = <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />;
-      elmButton = <button onClick={this.handleToggleForm} type="button" className="btn btn-success btn-block">Edit Task</button>;
     }
     
-
     return (
       <div>
         <Title />
@@ -162,10 +152,8 @@ class App extends Component {
             onClickSearchGo={ this.handleSearch }
           />
           <div className="col-12 col-lg-6">
-            <div className="form-group add-task">
-            { elmButton }
-            </div>
-              { elmForm }
+            <ToggleForm />
+            { elmForm }
           </div>
         </div>
         <List
