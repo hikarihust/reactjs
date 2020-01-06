@@ -65,12 +65,12 @@ class Form extends Component {
         return (
             <form onSubmit={this.handleSubmit} className="form-inline justify-content-between">
                 <div className="form-group">
-                    <label className="sr-only" htmlFor>label</label>
+                    <label className="sr-only" htmlFor="task_name">label</label>
                     <input value={ this.state.task_name } onChange={this.handleChange} name="task_name" type="text" className="form-control" placeholder="Task Name" />
                 </div>
 
                 <div className="form-group">
-                    <label className="sr-only" htmlFor>label</label>
+                    <label className="sr-only" htmlFor="task_level">label</label>
                     <select value={ this.state.task_level } onChange={this.handleChange} name="task_level" className="form-control" required="required">
                         <option value={0}>Small</option>
                         <option value={1}>Medium</option>

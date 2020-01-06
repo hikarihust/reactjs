@@ -117,18 +117,8 @@ class App extends Component {
   render() {
     let itemsOrigin = [...this.state.items];
     let items       = [];
-    let { orderBy, orderDir, isShowForm, strSearch, itemSelected } = this.state;
+    let { orderBy, orderDir, strSearch, itemSelected } = this.state;
 
-    // Search
-    // if(search.length > 0) {
-    //   itemsOrigin.forEach((item) => {
-    //     if(item.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1) {
-    //       items.push(item);
-    //     }
-    //   })
-    // } else {
-    //   items = itemsOrigin;
-    // }
     items = filter(itemsOrigin, (item) => {
       return includes(item.name.toLowerCase(), strSearch.toLowerCase());
     });

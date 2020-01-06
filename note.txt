@@ -166,3 +166,4 @@ Form Toogle với Redux
 	ToggleForm
 		<button onClick={this.handleToggleForm} type="button" className={`btn ${btnClass} btn-block`}>{ btnName }</button>
 	Form
+	Open - Close

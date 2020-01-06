@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
+import { actToggleForm } from './../actions'
 import { connect } from 'react-redux'
 
 class ToggleForm extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-       
-    };
-
-    this.handleToggleForm = this.handleToggleForm.bind(this);
   }
 
-  handleToggleForm = () => {
-    this.setState({
-      isShowForm: !this.state.isShowForm,
-      itemSelected: null
-    })
+  toggleForm = () => {
+    this.props.handleToggle();
   }
 
   render() {
@@ -27,7 +19,7 @@ class ToggleForm extends Component {
     
     return (
       <div className="form-group add-task">
-        <button onClick={this.handleToggleForm} type="button" className={`btn ${btnClass} btn-block`}>{ btnName }</button>
+        <button onClick={this.toggleForm} type="button" className={`btn ${btnClass} btn-block`}>{ btnName }</button>
       </div>
     );
   }
@@ -39,4 +31,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(ToggleForm);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    handleToggle: () => {
+      dispatch(actToggleForm());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToggleForm);
