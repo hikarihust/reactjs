@@ -2,7 +2,12 @@ import { createStore } from 'redux'
 import appReducers from './reducers'
 import { actCloseForm, actOpenForm, actToggleForm, actSort } from './actions'
 
-const store = createStore(appReducers);
+const store = createStore(
+    appReducers, /* preloadedState, */
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+
+// const store = createStore(appReducers);
 console.log("Init: ", store.getState());
 
 store.subscribe(() => console.log(store.getState()))
