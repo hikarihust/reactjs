@@ -117,7 +117,6 @@ class App extends Component {
   render() {
     let itemsOrigin = [...this.state.items];
     let items       = [];
-    let elmForm = null;
     let { orderBy, orderDir, isShowForm, strSearch, itemSelected } = this.state;
 
     // Search
@@ -136,10 +135,6 @@ class App extends Component {
 
     // Sort
     items = funcOrderBy(items, [ orderBy ], [ orderDir ])
-
-    if(isShowForm) {
-      elmForm = <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />;
-    }
     
     return (
       <div>
@@ -153,7 +148,7 @@ class App extends Component {
           />
           <div className="col-12 col-lg-6">
             <ToggleForm />
-            { elmForm }
+            <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />
           </div>
         </div>
         <List

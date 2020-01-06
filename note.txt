@@ -165,3 +165,4 @@ Hiển thị danh sách các Item với Redux
 Form Toogle với Redux
 	ToggleForm
 		<button onClick={this.handleToggleForm} type="button" className={`btn ${btnClass} btn-block`}>{ btnName }</button>
+	Form

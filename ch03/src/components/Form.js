@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class Form extends Component {
     constructor(props) {
@@ -58,6 +59,9 @@ class Form extends Component {
     }
 
     render() {
+        let { isShowForm } = this.props;
+        if(!isShowForm) return null;
+
         return (
             <form onSubmit={this.handleSubmit} className="form-inline justify-content-between">
                 <div className="form-group">
@@ -81,4 +85,10 @@ class Form extends Component {
     }
 }
 
-export default Form;
+const mapStateToProps = state => {
+    return {
+        isShowForm: state.isShowForm
+    }
+  }
+  
+export default connect(mapStateToProps, null)(Form);
