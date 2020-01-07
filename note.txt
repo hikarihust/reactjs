@@ -168,3 +168,4 @@ Form Toogle với Redux
 	Form
 	Open - Close
 	Cancel
+	Edit Item

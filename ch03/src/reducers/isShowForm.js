@@ -4,16 +4,13 @@ const defaultState = false;
 const isShowForm = (state = defaultState, action) => {
     switch(action.type) {
         case types.CLOSE_FORM:
-            state = false;
-            return state;
+            return false;
 
         case types.OPEN_FORM:
-            state = true;
-            return state;
+            return true;
 
         case types.TOGGLE_FORM:
-            state = !state;
-            return state;
+            return !state;
 
         default:
             return state;
