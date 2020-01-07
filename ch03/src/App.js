@@ -26,7 +26,6 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
   }
@@ -62,19 +61,6 @@ class App extends Component {
       isShowForm: true
     });
   }
-
-  handleDelete(id) {
-    let items = [...this.state.items];
-    remove(items, (item)=> {
-        return item.id === id;
-    });
-    this.setState({
-        items: items
-    });
-    
-    // Save
-    localStorage.setItem("task", JSON.stringify(items));
-  }
  
   render() {
     let items       = [];
@@ -97,7 +83,6 @@ class App extends Component {
         </div>
         <List
           onClickEdit={ this.handleEdit }
-          onClickDelete={ this.handleDelete }
         />
       </div>
     );

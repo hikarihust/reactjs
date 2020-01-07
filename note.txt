@@ -178,3 +178,6 @@ Xây dựng chức năng Search với Redux
 Xây dựng chức năng Sort với Redux
 	Part 01
 	Part 02
+
+Xây dựng chức năng Delete với Redux
+	lodash: remove()

@@ -33,7 +33,6 @@ class List extends Component {
                     <Item 
                         key={index} item={item} index={ index } 
                         onClickEdit={ this.props.onClickEdit }
-                        onClickDelete={ this.props.onClickDelete }
                     /> 
                 );
             });
