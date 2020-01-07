@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Title from './components/Title';
-import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
+import Sort from './components/Sort';
 import ToggleForm from './components/ToggleForm';
 import { filter, includes, remove, reject } from 'lodash';
 
@@ -26,7 +26,6 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.handleSort = this.handleSort.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -76,27 +75,21 @@ class App extends Component {
     // Save
     localStorage.setItem("task", JSON.stringify(items));
   }
-
-  handleSort = (orderBy, orderDir) => {
-    this.setState({
-        orderBy: orderBy,
-        orderDir: orderDir
-    });
-}
  
   render() {
     let items       = [];
-    let { orderBy, orderDir, strSearch, itemSelected } = this.state;
+    let { itemSelected } = this.state;
     
     return (
       <div>
         <Title />
         <div className="row">
-          <Control
-            orderBy={ orderBy } 
-            orderDir={ orderDir } 
-            onClickSort={ this.handleSort }
-          />
+          <div className="col-12 col-lg-6">
+            <div className="row">
+              <Sort />
+              <Search />
+            </div>
+          </div>
           <div className="col-12 col-lg-6">
             <ToggleForm />
             <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } />

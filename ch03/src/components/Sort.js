@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { actSort} from './../actions'
 
 class Sort extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-           
-        };
-
-        this.handleSort = this.handleSort.bind(this);
-    }
-
-    handleSort(orderBy, orderDir){
-        console.log("handleSort: ", orderBy + "-" + orderDir);
-        this.props.onClickSort(orderBy, orderDir );
+    handleSort = (orderBy, orderDir) => {
+        this.props.sortItem(orderBy, orderDir );
     }
 
     render() {
@@ -51,4 +41,12 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Sort);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        sortItem: (orderBy, orderDir) => {
+            dispatch(actSort(orderBy, orderDir));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sort);
