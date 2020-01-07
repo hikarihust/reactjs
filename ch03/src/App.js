@@ -26,16 +26,6 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   items: [],
-    //   itemSelected: null,
-    //   isShowForm: false,
-    //   strSearch: '',
-    //   orderBy: 'name',
-    //   orderDir: 'asc'
-    // };
-
-    this.closeForm = this.closeForm.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSort = this.handleSort.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -107,12 +97,6 @@ class App extends Component {
       strSearch: value
     })
   }
-
-  closeForm() {
-    this.setState({
-      isShowForm: false
-    })
-  }
  
   render() {
     let itemsOrigin = [...this.state.items];
@@ -138,7 +122,7 @@ class App extends Component {
           />
           <div className="col-12 col-lg-6">
             <ToggleForm />
-            <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } onClickCancel={ this.closeForm } />
+            <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } />
           </div>
         </div>
         <List

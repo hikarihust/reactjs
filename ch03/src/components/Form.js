@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { actCloseForm } from './../actions'
 
 class Form extends Component {
     constructor(props) {
@@ -55,7 +56,7 @@ class Form extends Component {
     }
 
     handleCancel() {
-        this.props.onClickCancel();
+        this.props.formCancel();
     }
 
     render() {
@@ -90,5 +91,13 @@ const mapStateToProps = state => {
         isShowForm: state.isShowForm
     }
   }
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        formCancel: () => {
+            dispatch(actCloseForm());
+        }
+    }
+}
   
-export default connect(mapStateToProps, null)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
