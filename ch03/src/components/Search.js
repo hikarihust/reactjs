@@ -23,7 +23,7 @@ class Search extends Component {
         this.setState({
             strSearch: ''
         })
-        this.props.clearSearch(this.state.strSearch);
+        this.props.goSearch(this.state.strSearch);
     }
 
     handleChange(event) {
@@ -58,9 +58,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goSearch: (search) => {
             dispatch(actSearch(search));
-        },
-        clearSearch: () => {
-            dispatch(actSearch(""));
         }
     }
 }

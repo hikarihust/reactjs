@@ -26,18 +26,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.handleSearch = this.handleSearch.bind(this);
     this.handleSort = this.handleSort.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
-  }
-
-  UNSAFE_componentWillMount(){
-    let items = JSON.parse(localStorage.getItem('task')) || [];
-    this.setState({
-        items       : items
-    })
   }
 
   handleSubmit(item) {
@@ -91,21 +83,10 @@ class App extends Component {
         orderDir: orderDir
     });
 }
-
-  handleSearch(value) {
-    this.setState({
-      strSearch: value
-    })
-  }
  
   render() {
-    let itemsOrigin = [...this.state.items];
     let items       = [];
     let { orderBy, orderDir, strSearch, itemSelected } = this.state;
-
-    items = filter(itemsOrigin, (item) => {
-      return includes(item.name.toLowerCase(), strSearch.toLowerCase());
-    });
 
     // Sort
     items = funcOrderBy(items, [ orderBy ], [ orderDir ])
@@ -118,7 +99,6 @@ class App extends Component {
             orderBy={ orderBy } 
             orderDir={ orderDir } 
             onClickSort={ this.handleSort }
-            onClickSearchGo={ this.handleSearch }
           />
           <div className="col-12 col-lg-6">
             <ToggleForm />
