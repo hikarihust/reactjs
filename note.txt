@@ -169,3 +169,6 @@ Form Toogle với Redux
 	Open - Close
 	Cancel
 	Edit Item
+
+Xây dựng chức năng Search với Redux
+	Part 01

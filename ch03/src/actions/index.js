@@ -25,3 +25,10 @@ export const actSort = (orderBy, orderDir) => {
 		orderDir
 	}
 }
+
+export const actSearch = (search) => {
+	return {
+		type : types.CHANGE_SEARCH,
+		search
+	}
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Item from './Item';
+import { filter, includes } from 'lodash';
 
 class List extends Component {
     constructor(props) {
@@ -13,7 +14,13 @@ class List extends Component {
     }
 
     render() {
-        const  { items }   = this.props;
+        let { items, search }   = this.props;
+        // Search 
+        let itemsOrigin = items ? [...items] : [];
+        items = filter(itemsOrigin, (item) => {
+            return includes(item.name.toLowerCase(), search.toLowerCase());
+        });
+
         let elemItem = <tr><th colSpan={4}>Khong co cong viec</th></tr>;
 
         if(items.length > 0) {
@@ -52,7 +59,8 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-        items: state.items
+        items: state.items,
+        search: state.search
     }
 }
 
