@@ -1,9 +1,10 @@
-const defaultState = { orderBy: 'name', orderDir: 'asc' };
+import * as types from './../constants/ActionTypes'
+const defaultState = { orderBy: 'level', orderDir: 'desc' };
 
 const sort = (state = defaultState, action) => {
     let { orderBy, orderDir } = action;
     switch(action.type) {
-        case 'sort_item':
+        case types.SORT_ITEM:
             return { orderBy, orderDir };
 
         default:

@@ -5,7 +5,7 @@ import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
 import ToggleForm from './components/ToggleForm';
-import { filter, includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
+import { filter, includes, remove, reject } from 'lodash';
 
 // import tasks from './mocks/tasks'
 import Search from './components/Search';
@@ -87,9 +87,6 @@ class App extends Component {
   render() {
     let items       = [];
     let { orderBy, orderDir, strSearch, itemSelected } = this.state;
-
-    // Sort
-    items = funcOrderBy(items, [ orderBy ], [ orderDir ])
     
     return (
       <div>

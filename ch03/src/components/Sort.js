@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class Sort extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Sort extends Component {
     }
 
     render() {
-        let { orderBy, orderDir } = this.props;
+        let { orderBy, orderDir } = this.props.sort;
         let strSort = orderBy + " - " + orderDir;
  
         return (
@@ -44,4 +45,10 @@ class Sort extends Component {
     }
 }
 
-export default Sort;
+const mapStateToProps = state => {
+    return {
+        sort: state.sort
+    }
+}
+
+export default connect(mapStateToProps, null)(Sort);
