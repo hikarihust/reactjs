@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { actCloseForm } from './../actions'
+import { actCloseForm, actSubmitForm } from './../actions'
 
 class Form extends Component {
     constructor(props) {
@@ -51,7 +51,7 @@ class Form extends Component {
             id: this.state.task_id,
             level: this.state.task_level
         };
-        this.props.onClickSubmit(item);
+        this.props.formSubmit(item);
         event.preventDefault();
     }
 
@@ -95,6 +95,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         formCancel: () => {
+            dispatch(actCloseForm());
+        },
+        formSubmit: (item) => {
+            dispatch(actSubmitForm(item));
             dispatch(actCloseForm());
         }
     }

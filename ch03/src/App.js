@@ -23,44 +23,37 @@ class App extends Component {
     orderDir: 'asc'
   };
 
-  constructor(props) {
-    super(props);
+  // handleSubmit(item) {
+  //   let items = [...this.state.items];
+  //   let id = null;
+  //   if(item.id) { // Edit
+  //     items = reject(items, { id: item.id });
+  //     id = item.id;
+  //   } else { // Add
+  //     id = uuidv4();
+  //   }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
-  }
+  //   items.push({
+  //     id      : id,
+  //     name    : item.name,
+  //     level   : +item.level // 0 Small, 1 Medium, 2 High
+  //   });
 
-  handleSubmit(item) {
-    let items = [...this.state.items];
-    let id = null;
-    if(item.id) { // Edit
-      items = reject(items, { id: item.id });
-      id = item.id;
-    } else { // Add
-      id = uuidv4();
-    }
+  //   this.setState({
+  //     items: items,
+  //     isShowForm: false
+  //   });
 
-    items.push({
-      id      : id,
-      name    : item.name,
-      level   : +item.level // 0 Small, 1 Medium, 2 High
-    });
+  //   // Save
+  //   localStorage.setItem("task", JSON.stringify(items));
+  // }
 
-    this.setState({
-      items: items,
-      isShowForm: false
-    });
-
-    // Save
-    localStorage.setItem("task", JSON.stringify(items));
-  }
-
-  handleEdit(item) {
-    this.setState({
-      itemSelected: item,
-      isShowForm: true
-    });
-  }
+  // handleEdit(item) {
+  //   this.setState({
+  //     itemSelected: item,
+  //     isShowForm: true
+  //   });
+  // }
  
   render() {
     let items       = [];
@@ -78,7 +71,7 @@ class App extends Component {
           </div>
           <div className="col-12 col-lg-6">
             <ToggleForm />
-            <Form itemSelected={ itemSelected } onClickSubmit={ this.handleSubmit } />
+            <Form />
           </div>
         </div>
         <List
