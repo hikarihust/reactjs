@@ -199,3 +199,9 @@ Xây dựng cấu trúc ứng dụng
 		<a href="#"> -> <a href="http://localhost:3000/">
 		<a data-product={1} href="#" className="price"> 12 USD </a>
 			-> <a data-product={1} type="button" className="price"> 12 USD </a>
+
+Xây dựng chức năng hiển thị sản phẩm
+	Actions
+		Cài đặt redux vào ứng dụng
+			npm install --save redux
+			npm install --save react-redux
