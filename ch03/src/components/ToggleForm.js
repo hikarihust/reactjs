@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { actToggleForm } from './../actions'
+import { actToggleForm, actUnSelectItem } from './../actions'
 import { connect } from 'react-redux'
 
 class ToggleForm extends Component {
@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleToggle: () => {
       dispatch(actToggleForm());
+      dispatch(actUnSelectItem());
     }
   }
 }

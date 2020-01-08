@@ -6,6 +6,10 @@ const itemSelected = (state = defaultState, action) => {
     switch(action.type) {
         case types.SELECTED_ITEM:
             return action.item;
+
+        case types.UNSELECT_ITEM:
+            return defaultState;
+
         default:
             return state;
     }

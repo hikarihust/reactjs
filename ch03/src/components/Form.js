@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { actCloseForm, actSubmitForm } from './../actions'
+import { actCloseForm, actSubmitForm, actUnSelectItem } from './../actions'
 
 class Form extends Component {
     constructor(props) {
@@ -97,6 +97,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         formCancel: () => {
             dispatch(actCloseForm());
+            dispatch(actUnSelectItem());
         },
         formSubmit: (item) => {
             dispatch(actSubmitForm(item));

@@ -53,3 +53,9 @@ export const actSelectedItem = (item) => {
 		item
 	}
 }
+
+export const actUnSelectItem = () => {
+	return {
+		type : types.UNSELECT_ITEM
+	}
+}

@@ -186,3 +186,4 @@ Xây dựng chức năng Add với Redux
 
 Xây dựng chức năng Edit với Redux
 	Part 01
+	Part 02
