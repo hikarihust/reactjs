@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductItem from './ProductItem';
+import ProductItemNoSale from './ProductItemNoSale';
 
 class ProductList extends Component {
 
@@ -10,8 +11,7 @@ class ProductList extends Component {
                     <div className="panel-heading"><h1 className="panel-title">List Products</h1></div> 
                     <div className="panel-body" id="list-product">
 						<ProductItem />
-						<ProductItem />
-						<ProductItem />
+						<ProductItemNoSale />
                     </div>
                 </div>
             </div>
