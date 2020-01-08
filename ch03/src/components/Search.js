@@ -23,7 +23,7 @@ class Search extends Component {
         this.setState({
             strSearch: ''
         })
-        this.props.goSearch(this.state.strSearch);
+        this.props.goSearch('');
     }
 
     handleChange(event) {

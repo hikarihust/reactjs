@@ -18,7 +18,6 @@ class Sort extends Component {
                     <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort by
                     </button>
-                    {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton"> */}
 
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a onClick={()=>this.handleSort('name', 'asc')} role="button">Name ASC</a></li>

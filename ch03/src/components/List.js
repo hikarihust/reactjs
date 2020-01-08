@@ -4,14 +4,6 @@ import Item from './Item';
 import { filter, includes, orderBy as funcOrderBy } from 'lodash';
 
 class List extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-           
-        };
-
-    }
 
     render() {
         let { items, search, sort }   = this.props;
@@ -32,7 +24,6 @@ class List extends Component {
                 return (
                     <Item 
                         key={index} item={item} index={ index } 
-                        onClickEdit={ this.props.onClickEdit }
                     /> 
                 );
             });

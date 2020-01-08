@@ -27,7 +27,8 @@ const items = (state = defaultState, action) => {
             let {item} = action;
             items = [...state];
             if(item.id) { //edit
-
+                items = reject(items, { id: item.id });
+                id = item.id;
             } else { // add
                 id = uuidv4();
             }
