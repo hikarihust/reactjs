@@ -205,3 +205,4 @@ Xây dựng chức năng hiển thị sản phẩm
 		Cài đặt redux vào ứng dụng
 			npm install --save redux
 			npm install --save react-redux
+	Reducers
