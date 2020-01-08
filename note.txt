@@ -188,3 +188,9 @@ Xây dựng chức năng Edit với Redux
 	Part 01
 	Part 02
 	Part 03
+
+=============================================== Sử dụng Redux với Project TodoList ===============================================
+
+Xây dựng cấu trúc ứng dụng
+	Init
+		npx create-react-app ch04
