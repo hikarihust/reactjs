@@ -195,3 +195,7 @@ Xây dựng cấu trúc ứng dụng
 	Init
 		npx create-react-app ch04
 	Analyst
+	fix error
+		<a href="#"> -> <a href="http://localhost:3000/">
+		<a data-product={1} href="#" className="price"> 12 USD </a>
+			-> <a data-product={1} type="button" className="price"> 12 USD </a>
