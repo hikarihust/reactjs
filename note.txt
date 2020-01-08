@@ -194,3 +194,4 @@ Xây dựng chức năng Edit với Redux
 Xây dựng cấu trúc ứng dụng
 	Init
 		npx create-react-app ch04
+	Analyst
