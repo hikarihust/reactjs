@@ -46,3 +46,10 @@ export const actDeleteItem = (id) => {
 		id
 	}
 }
+
+export const actSelectedItem = (item) => {
+	return {
+		type : types.SELECTED_ITEM,
+		item
+	}
+}

@@ -88,7 +88,8 @@ class Form extends Component {
 
 const mapStateToProps = state => {
     return {
-        isShowForm: state.isShowForm
+        isShowForm: state.isShowForm,
+        itemSelected: state.itemSelected
     }
   }
 
