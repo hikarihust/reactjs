@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Helpers from './../libs/Helpers';
 import Validate from './../libs/Validate';
-import { actChangeNotify } from './../actions'
+import { actChangeNotify, actBuyProduct } from './../actions'
 import * as configs from './../constants/Config';
 
 class ProductItem extends Component {
@@ -30,7 +30,7 @@ class ProductItem extends Component {
         if (!Validate.checkQuantity(quantity)) {
             this.props.changeNotify(configs.NOTI_GREATER_THAN_ONE);
         } else {
-            console.log(quantity + '-' + product.id);
+            this.props.buyProduct(product, quantity);
             this.props.changeNotify(configs.NOTI_ACT_ADD);
         }
         this.setState({ value: 1 });
@@ -74,6 +74,9 @@ class ProductItem extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        buyProduct: (product, quantity) => {
+            dispatch(actBuyProduct(product, quantity));
+        },
         changeNotify: (value) => {
             dispatch(actChangeNotify(value));
         }
