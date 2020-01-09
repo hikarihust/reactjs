@@ -215,3 +215,6 @@ Xây dựng chức năng Add sản phẩm vào giỏ hàng
 	ShowError
 	Add product
 	CartItem
+	Cart Footer
+		npm i --save lodash
+		lodash sum value of key
