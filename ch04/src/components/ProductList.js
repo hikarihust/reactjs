@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import * as configs from './../constants/Config'
 import ProductItem from './ProductItem';
-import ProductItemNoSale from './ProductItemNoSale';
 
 class ProductList extends Component {
 
@@ -15,7 +14,6 @@ class ProductList extends Component {
                     <div className="panel-heading"><h1 className="panel-title">List Products</h1></div> 
                     <div className="panel-body" id="list-product">
 						{ this.showElementProduct(products) }
-						<ProductItemNoSale />
                     </div>
                 </div>
             </div>
