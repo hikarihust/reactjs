@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
 
 import Helpers from './../libs/Helpers';
+import Validate from './../libs/Validate';
 
 class ProductItem extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-
+            value: 1
         };
+    }
+
+    handleChange = (event) => {
+        const target = event.target;    // input selectbox
+        const value  = (target.type === 'checkbox') ? target.checked : target.value;
+        const name   = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleClick = (product) => {
+        let quantity = +this.state.value;
+        if (!Validate.checkQuantity(quantity)) {
+            console.log("Validate");
+        } else {
+            console.log(quantity + '-' + product.id);
+        }
     }
 
     render() {
@@ -34,8 +54,8 @@ class ProductItem extends Component {
         let price = Helpers.toCurrency(product.price, "$", "left");
         if (product.canBuy) {
             xhtml = <p>
-                    <input name="quantity-product-1" type="number" defaultValue={1} min={1} />
-                    <a data-product={1} type="button" className="price"> 
+                    <input name="value" type="number" value={ this.state.value } onChange={this.handleChange} min={1} />
+                    <a onClick={()=>this.handleClick(product)} type="button" className="price"> 
                         { price }
                     </a>
                 </p>
