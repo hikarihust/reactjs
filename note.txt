@@ -206,3 +206,4 @@ Xây dựng chức năng hiển thị sản phẩm
 			npm install --save redux
 			npm install --save react-redux
 	Reducers
+	ProductList
