@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 import Helpers from './../libs/Helpers';
 import Validate from './../libs/Validate';
+import { actChangeNotify } from './../actions'
+import * as configs from './../constants/Config';
 
 class ProductItem extends Component {
     constructor(props) {
@@ -25,10 +28,12 @@ class ProductItem extends Component {
     handleClick = (product) => {
         let quantity = +this.state.value;
         if (!Validate.checkQuantity(quantity)) {
-            console.log("Validate");
+            this.props.changeNotify(configs.NOTI_GREATER_THAN_ONE);
         } else {
             console.log(quantity + '-' + product.id);
+            this.props.changeNotify(configs.NOTI_ACT_ADD);
         }
+        this.setState({ value: 1 });
     }
 
     render() {
@@ -67,4 +72,12 @@ class ProductItem extends Component {
     }
 }
 
-export default ProductItem;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        changeNotify: (value) => {
+            dispatch(actChangeNotify(value));
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductItem);
