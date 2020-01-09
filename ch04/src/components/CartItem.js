@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 import Helpers from './../libs/Helpers';
+import Validate from './../libs/Validate';
 import { actUpdateProduct, actRemoveProduct, actChangeNotify } from './../actions';
 import * as configs from './../constants/Config';
 
@@ -17,6 +18,15 @@ class CartItem extends Component {
     handleDelete = (product) => {
         this.props.removeProduct(product);
         this.props.changeNotify(configs.NOTI_ACT_DELETE);
+    }
+
+    handleUpdate = (product, quantity) =>{
+        if(!Validate.checkQuantity(+quantity)){
+            this.props.changeNotify(configs.NOTI_GREATER_THAN_ONE);
+        }else{
+            this.props.updateProduct(product, +quantity);
+            this.props.changeNotify(configs.NOTI_ACT_UPDATE);
+        }
     }
 
     handleChange = (event) => {
@@ -41,7 +51,7 @@ class CartItem extends Component {
                 <td><input name="value" type="number" value={ quantity } onChange={this.handleChange} min={1} /></td>
                 <td>{ this.showSubTotal(product.price, quantity) }</td>
                 <td>
-                <a className="label label-info update-cart-item" href="#" data-product>Update</a>
+                <a onClick={()=>this.handleUpdate(product, quantity)} className="label label-info update-cart-item" href="#" data-product>Update</a>
                 <a onClick={()=>this.handleDelete(product)} className="label label-danger delete-cart-item" href="#" data-product>Delete</a>
                 </td>
             </tr>
@@ -59,6 +69,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         removeProduct: (product) => {
             dispatch(actRemoveProduct(product)) ;
+        },
+        updateProduct: (product, quantity) => {
+            dispatch(actUpdateProduct(product, quantity)) ;
         },
         changeNotify: (value) => {
             dispatch(actChangeNotify(value));

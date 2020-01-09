@@ -16,9 +16,10 @@ let getProductPosition = (cartItems, product) => {
 
 const carts = (state = defaultState, action) => {
 	let { product, quantity } = action;
+	let position = -1;
 	switch(action.type){
 		case types.BUY_PRODUCT:
-			let position = getProductPosition(state, product);
+			position = getProductPosition(state, product);
 
 			if (position > -1) {
 				state[position].quantity += quantity;
@@ -29,7 +30,15 @@ const carts = (state = defaultState, action) => {
 			return [...state];
 
 		case types.UPDATE_PRODUCT:
-			return state;
+			position = getProductPosition(state, product);
+
+			if(position > -1){ // update
+				state[position].quantity = quantity;
+			}
+
+			localStorage.setItem(configs.CARTS_FROM_LOCAL_STOGARE, JSON.stringify(state));
+
+			return [...state];
 
 		case types.REMOVE_PRODUCT:
 			remove(state, (cartItem)=> {
