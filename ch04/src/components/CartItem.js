@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import Helpers from './../libs/Helpers';
+import { actUpdateProduct, actRemoveProduct, actChangeNotify } from './../actions';
+import * as configs from './../constants/Config';
 
 class CartItem extends Component {
     constructor(props) {
@@ -9,6 +12,11 @@ class CartItem extends Component {
         this.state = {
             value: 0
         };
+    }
+
+    handleDelete = (product) => {
+        this.props.removeProduct(product);
+        this.props.changeNotify(configs.NOTI_ACT_DELETE);
     }
 
     handleChange = (event) => {
@@ -34,7 +42,7 @@ class CartItem extends Component {
                 <td>{ this.showSubTotal(product.price, quantity) }</td>
                 <td>
                 <a className="label label-info update-cart-item" href="#" data-product>Update</a>
-                <a className="label label-danger delete-cart-item" href="#" data-product>Delete</a>
+                <a onClick={()=>this.handleDelete(product)} className="label label-danger delete-cart-item" href="#" data-product>Delete</a>
                 </td>
             </tr>
         );
@@ -47,4 +55,15 @@ class CartItem extends Component {
     }
 }
 
-export default CartItem;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        removeProduct: (product) => {
+            dispatch(actRemoveProduct(product)) ;
+        },
+        changeNotify: (value) => {
+            dispatch(actChangeNotify(value));
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CartItem);

@@ -218,3 +218,5 @@ Xây dựng chức năng Add sản phẩm vào giỏ hàng
 	Cart Footer
 		npm i --save lodash
 		lodash sum value of key
+
+Xây dựng chức năng Xóa sản phẩm khỏi giỏ hàng
