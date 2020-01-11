@@ -236,3 +236,6 @@ Redux với Project Shopping CartBài Redux các vấn đề nâng
 Sử dụng React Router
 	React Router
 		npm install --save react-router-dom
+		<Route exact path="/" component={ Home } />
+			exact: Khi link có đường dẫn chính xác là "/"
+	Link - NavLink
