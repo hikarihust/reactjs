@@ -224,3 +224,7 @@ Xây dựng chức năng Xóa sản phẩm khỏi giỏ hàng
 Xây dựng chức năng Update số lượng sản phẩm
 	<CartItem key={index + "-" + cartItem.quantity} cartItem={cartItem} index={index} />
 	Giá trị quantity là giá trị thay đổi khi mua thêm sản phẩm -> key thay đổi thì Component sẽ thay đổi theo
+
+Redux với Project Shopping CartBài Redux các vấn đề nâng
+	Container
+	ProductsContainer

@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from './Title';
-import ProductList from './ProductList';
+import ProductsContainer from './../containers/ProductsContainer';
 import Cart from './Cart';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="container">
         <Title />
         <div className="row">
-            <ProductList />
+            <ProductsContainer />
             <Cart />
         </div>
     </div>
