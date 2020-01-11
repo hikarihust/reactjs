@@ -1,36 +1,18 @@
 import React, { Component } from 'react';
 
-import * as configs from './../constants/Config'
-import ProductItem from './ProductItem';
-
 class ProductList extends Component {
 
     render() {
-        let { products } = this.props;
         return (
             <div className="col-xs-12 col-sm-12 col-md-5 col-lg-5">
                 <div className="panel panel-primary"> 
                     <div className="panel-heading"><h1 className="panel-title">List Products</h1></div> 
                     <div className="panel-body" id="list-product">
-						{ this.showElementProduct(products) }
+						{ this.props.children }
                     </div>
                 </div>
             </div>
         );
-    }
-
-    showElementProduct(products) {
-        let xhtml = <b>{ configs.NOTI_EMPTY_PRODUCT }</b>
-
-        if (products.length > 0) {
-            xhtml = products.map((product, index) => {
-                return (
-                    <ProductItem key={ index } product={ product } index={ index } />
-                );
-            });
-        }
-
-        return xhtml;
     }
   
 }
