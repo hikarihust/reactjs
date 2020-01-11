@@ -228,3 +228,4 @@ Xây dựng chức năng Update số lượng sản phẩm
 Redux với Project Shopping CartBài Redux các vấn đề nâng
 	Container
 	ProductsContainer
+	PropTypes: Giúp kiểm tra các properties nhận vào có đúng kiểu dữ liệu hay không
