@@ -7,33 +7,8 @@ import {
 
 import Menu from './Menu'
 import Title from './Title'
-import Home from './Home'
-import About from './About'
-import Notfound from './Notfound';
-import CourseList from './CourseList';
 
-const routes = [
-    {
-        path: "/",
-        exact: true,
-        main: () => <Home />
-    },
-    {
-        path: "/about",
-        exact: true,
-        main: () => <About />
-    },
-    {
-        path: "/course",
-        exact: false,
-        main: ({ match }) => <CourseList match={ match } />
-    },
-    {
-        path: "",
-        exact: true,
-        main: () => <Notfound />
-    }
-];
+import routes from './../route-config'
 
 class App extends Component {
     render() {
