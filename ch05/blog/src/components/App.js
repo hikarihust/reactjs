@@ -5,6 +5,9 @@ import Navigation from './Navigation';
 import Slider from './Slider';
 import NewsItem from './NewsItem';
 import Footer from './Footer';
+import BlogItem from './BlogItem';
+import FormLogin from './FormLogin';
+import UserControl from './UserControl';
 
 class App extends Component {
     render() {
@@ -13,10 +16,7 @@ class App extends Component {
                 <Header />
                 <Navigation />
                 <div className="container">
-                    <Slider />
-                    <NewsItem />
-                    <NewsItem />
-                    <NewsItem />
+                    <UserControl />
                 </div>
                 <Footer />
             </div>
