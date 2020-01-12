@@ -6,6 +6,8 @@ const menus = [
     { to: '/about'  , exact: true, name: 'About' },
     { to: '/course'  , exact: false, name: 'Course' },
     { to: '/leave-me'  , exact: true, name: 'Leave Me' },
+    { to: '/admin/1'  , exact: true, name: 'Admin 1' },
+    { to: '/admin/2'  , exact: true, name: 'Admin 2' }
 ];
 
 class Menu extends Component {

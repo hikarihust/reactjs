@@ -5,12 +5,13 @@ import About from './components/About'
 import Notfound from './components/Notfound';
 import CourseList from './components/CourseList';
 import LeaveMe from './components/LeaveMe';
+import Admin from './components/Admin';
 
 const routes = [
     {
         path: "/",
         exact: true,
-        main: () => <Home />
+        main: ({ location }) => <Home location={ location } />
     },
     {
         path: "/about",
@@ -26,6 +27,11 @@ const routes = [
         path: "/leave-me",
         exact: true,
         main: () => <LeaveMe />
+    },
+    {
+        path: "/admin/:id",
+        exact: true,
+        main: ({ match, location }) => <Admin match={ match } location={ location }  />
     },
     {
         path: "",

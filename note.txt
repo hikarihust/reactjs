@@ -245,4 +245,4 @@ Sử dụng React Router
 	Route config
 	Prompt
 		preventing-transitions
-		
+	Redirect
