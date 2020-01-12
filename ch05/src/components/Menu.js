@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const menus = [
     { to: '/'       , exact: true, name: 'Home' },
-    { to: '/about'  , exact: false, name: 'About' },
+    { to: '/about'  , exact: true, name: 'About' },
     { to: '/course'  , exact: false, name: 'Course' },
 ];
 
