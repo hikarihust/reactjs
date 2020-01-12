@@ -239,3 +239,4 @@ Sử dụng React Router
 		<Route exact path="/" component={ Home } />
 			exact: Khi link có đường dẫn chính xác là "/"
 	Link - NavLink
+	Not Found

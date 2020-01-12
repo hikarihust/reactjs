@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Switch
 } from "react-router-dom";
 
 import Menu from './Menu'
 import Title from './Title'
 import Home from './Home'
 import About from './About'
+import Notfound from './Notfound';
 
 class App extends Component {
     render() {
@@ -23,8 +25,11 @@ class App extends Component {
                                     <h3 className="panel-title">Content</h3>
                                 </div>  
                                 <div className="panel-body">
-                                    <Route exact path="/" component={ Home } />
-                                    <Route path="/about" component={ About } />
+                                    <Switch>
+                                        <Route exact path="/" component={ Home } />
+                                        <Route exact path="/about" component={ About } />
+                                        <Route component={ Notfound } />
+                                    </Switch>
                                 </div>  
                             </div>  
                         </div>
