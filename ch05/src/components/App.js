@@ -10,6 +10,7 @@ import Title from './Title'
 import Home from './Home'
 import About from './About'
 import Notfound from './Notfound';
+import CourseList from './CourseList';
 
 class App extends Component {
     render() {
@@ -28,6 +29,7 @@ class App extends Component {
                                     <Switch>
                                         <Route exact path="/" component={ Home } />
                                         <Route exact path="/about" component={ About } />
+                                        <Route exact path="/course" component={ CourseList } />
                                         <Route component={ Notfound } />
                                     </Switch>
                                 </div>  

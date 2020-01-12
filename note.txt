@@ -240,3 +240,4 @@ Sử dụng React Router
 			exact: Khi link có đường dẫn chính xác là "/"
 	Link - NavLink
 	Not Found
+	match
