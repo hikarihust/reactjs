@@ -246,3 +246,9 @@ Sử dụng React Router
 	Prompt
 		preventing-transitions
 	Redirect
+
+Xây dựng cấu trúc ứng dụng
+	Init Project
+		npx create-react-app blog
+		bootstap template free
+		bootstrap template free business casual startbootstrap
