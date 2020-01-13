@@ -259,3 +259,6 @@ Xây dựng Page và cấu hình Router
 	Config Route
 		npm install --save react-router-dom
 	Review
+
+Xây dựng Menu và Custom Link
+	Menu
