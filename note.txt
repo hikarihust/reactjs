@@ -253,3 +253,6 @@ Xây dựng cấu trúc ứng dụng
 		bootstap template free
 		bootstrap template free business casual startbootstrap
 	Component
+
+Xây dựng Page và cấu hình Router
+	Pages
