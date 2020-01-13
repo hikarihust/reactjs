@@ -270,3 +270,4 @@ Xây dựng Page Login giới hạn vùng truy cập
 		npm install --save react-redux
 		npm install --save redux
 	BlogPage
+	UserControl

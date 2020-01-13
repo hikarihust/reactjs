@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import FormLogin from './../components/FormLogin';
+import UserControl from './../components/UserControl';
 
 class LoginPage extends Component {
     render() {
+        let { user } = this.props;
         return (
             <div>
-                <FormLogin />
+                { this.showArea(user) }
             </div>
         );
     }
+
+	showArea(user){
+		if(!user.isLogin) {
+			return <FormLogin />;
+		}else if (user.isLogin){
+            return <UserControl username={user.username} />;
+        }
+	}
 }
 
-export default LoginPage;
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, null)(LoginPage);
