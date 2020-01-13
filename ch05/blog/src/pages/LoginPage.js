@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FormLogin from '../FormLogin';
+import FormLogin from './../components/FormLogin';
 
 class LoginPage extends Component {
     render() {

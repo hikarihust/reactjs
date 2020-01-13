@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Slider from './Slider';
-import NewsItem from './NewsItem';
+import Slider from './../components/Slider';
+import NewsItem from './../components/NewsItem';
 
 class HomePage extends Component {
     render() {
