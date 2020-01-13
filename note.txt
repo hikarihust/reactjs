@@ -269,3 +269,4 @@ Xây dựng Page Login giới hạn vùng truy cập
 	Redux prepare
 		npm install --save react-redux
 		npm install --save redux
+	BlogPage

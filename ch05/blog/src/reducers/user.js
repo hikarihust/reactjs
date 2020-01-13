@@ -1,7 +1,7 @@
 import * as types from './../constants/ActionType';
 
 let defaultState = {
-	isLogin: false,
+	isLogin: true,
 	username: null
 };
 
