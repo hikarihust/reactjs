@@ -283,3 +283,4 @@ Xây dựng cấu trúc ứng dụng
 		Redux
 			npm install --save react-redux
 			npm install --save redux
+	Structure
