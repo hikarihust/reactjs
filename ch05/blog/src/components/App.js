@@ -7,12 +7,7 @@ import {
 
 import Header from './Header';
 import Navigation from './Navigation';
-import Slider from './Slider';
-import NewsItem from './NewsItem';
 import Footer from './Footer';
-import BlogItem from './BlogItem';
-import FormLogin from './FormLogin';
-import UserControl from './UserControl';
 
 import routes from './../route-config';
 

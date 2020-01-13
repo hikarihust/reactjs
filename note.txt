@@ -258,3 +258,4 @@ Xây dựng Page và cấu hình Router
 	Pages
 	Config Route
 		npm install --save react-router-dom
+	Review
