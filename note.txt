@@ -272,3 +272,14 @@ Xây dựng Page Login giới hạn vùng truy cập
 	BlogPage
 	UserControl
 	FormLogin
+
+=============================================== Thao tác API với Project SpotifyAPI ===============================================
+
+Xây dựng cấu trúc ứng dụng
+	Init
+		Cài đặt project: npx create-react-app ch06
+		Route
+			npm install --save react-router-dom
+		Redux
+			npm install --save react-redux
+			npm install --save redux
