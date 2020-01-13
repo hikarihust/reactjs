@@ -264,3 +264,8 @@ Xây dựng Menu và Custom Link
 	Menu
 	Custom Menu
 		Custom Link
+
+Xây dựng Page Login giới hạn vùng truy cập
+	Redux prepare
+		npm install --save react-redux
+		npm install --save redux
