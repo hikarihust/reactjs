@@ -284,3 +284,9 @@ Xây dựng cấu trúc ứng dụng
 			npm install --save react-redux
 			npm install --save redux
 	Structure
+	Query reducer
+
+Spotify App và Access Token
+	Register
+		tunnello vpn chrome extension:  Thay đổi ip thành các quốc gia khác
+		Đăng ký tài khoản spotify
