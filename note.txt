@@ -262,3 +262,5 @@ Xây dựng Page và cấu hình Router
 
 Xây dựng Menu và Custom Link
 	Menu
+	Custom Menu
+		Custom Link

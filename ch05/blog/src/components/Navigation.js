@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteMatch, Link } from "react-router-dom";
 
 const menus = [
     { to: '/'       , exact: true, name: 'Home' },
@@ -7,6 +7,19 @@ const menus = [
     { to: '/blog'  , exact: false, name: 'Blog' },
     { to: '/login'  , exact: true, name: 'Login' }
 ];
+
+const MenuLink = ({ menu }) => {
+    let match = useRouteMatch({
+        path: menu.to,
+        exact: menu.exact
+    });
+  
+    return (
+        <li className={match ? "active" : ""}>
+            <Link to={ menu.to }>{menu.name}</Link>
+        </li>
+    );
+}
 
 class Navigation extends Component {
     render() {
@@ -26,7 +39,7 @@ class Navigation extends Component {
                     </div>
                     <div className="collapse navbar-collapse navbar-ex1-collapse">
                         <ul className="nav navbar-nav">
-                            { this.showMenus(menus) }
+                            { this.showMenusTwo(menus) }
                         </ul>
                     </div>
                 </div>
@@ -34,7 +47,21 @@ class Navigation extends Component {
         );
     }
 
-    showMenus(menus) {
+    showMenusTwo(menus) {
+        let xhtml = null;
+        
+        if (menus.length > 0) {
+            xhtml = menus.map((menu, index) => {  
+                return (
+                    <MenuLink menu={ menu } key={ index } />
+                );
+            });
+        }
+
+        return xhtml;
+    } 
+
+    showMenusOne(menus) {
         let xhtml = null;
         
         if (menus.length > 0) {
