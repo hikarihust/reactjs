@@ -30,7 +30,7 @@ class ArtistList extends Component {
                     return response.json();
                 })
                 .then((data) => {
-                    if (data) {
+                    if (data && data.artists.items) {
                         this.setState({
                             artists: data.artists.items
                         });
@@ -59,6 +59,8 @@ class ArtistList extends Component {
                     <Artist key={index} item={artist} index={index} />
                 );
             });
+        } else if(query) {
+            xhtml = <h3>Không có dữ liệu cho <strong>{query}</strong></h3>
         }
 
         return (
