@@ -9,16 +9,22 @@ class ArtistList extends Component {
     searchArtist(query) {
         if (query) {
             let url =  configs.BASE_URL + 'search?q=' + query + '&type=artist&limit=4&offset=0';
-            console.log(url);
+            let config = {  
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + configs.API_KEY
+                    }
+                };
+            fetch(url, config)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((responseData) => {
+                    console.log(responseData);
+                });
         }
-
-        // fetch('http://example.com/movies.json')
-        // .then((response) => {
-        //   return response.json();
-        // })
-        // .then((myJson) => {
-        //   console.log(myJson);
-        // });
     }
 
     render() {
