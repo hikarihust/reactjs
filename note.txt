@@ -323,3 +323,4 @@ Xây dựng trang tìm kiếm Artist
 		Javascript fetch Authorization: Bearer 
 			https://stackoverflow.com/questions/30203044/using-an-authorization-header-with-fetch-in-react-native
 	Set artists
+	Show artist

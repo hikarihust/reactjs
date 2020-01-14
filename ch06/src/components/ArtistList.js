@@ -36,6 +36,10 @@ class ArtistList extends Component {
                         });
                     }
                 });
+        } else {
+            this.setState({
+                artists: []
+            });
         }
     }
 
@@ -45,12 +49,22 @@ class ArtistList extends Component {
 
     render() {
         let { artists } = this.state;
-        console.log(artists);
+        let {query} = this.props;
 
         let xhtml = <h3>Enter artist's name to start</h3>
 
+        if(artists.length > 0){
+            xhtml = artists.map((artist, index)=> {
+                return (
+                    <Artist key={index} item={artist} index={index} />
+                );
+            });
+        }
+
         return (
-            <Artist />
+            <div className="panel-body" >
+                { xhtml }
+            </div>
         );
     }
 }
