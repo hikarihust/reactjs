@@ -290,3 +290,18 @@ Spotify App và Access Token
 	Register
 		tunnello vpn chrome extension:  Thay đổi ip thành các quốc gia khác
 		Đăng ký tài khoản spotify
+
+	AccessToken
+		https://developer.spotify.com/documentation/web-api/quick-start/
+		https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app
+		https://github.com/spotify/web-api-auth-examples
+			npm install
+			cd authorization_code
+			app.js:
+				var client_id = 'CLIENT_ID'; // Your client id
+				var client_secret = 'CLIENT_SECRET'; // Your secret
+				var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
+					http://localhost:8888/callback/
+			node app.js
+		Mở trang http://localhost:8888/ thì thu được Access token
+			Sử dụng giá trị này để gọi API gửi đến Spotify thì thu được kết quả
