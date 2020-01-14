@@ -6,6 +6,14 @@ import Artist from './Artist';
 
 class ArtistList extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            artists: [],
+            isExist: false,
+        };
+    }
+
     searchArtist(query) {
         if (query) {
             let url =  configs.BASE_URL + 'search?q=' + query + '&type=artist&limit=4&offset=0';
@@ -21,14 +29,23 @@ class ArtistList extends Component {
                 .then((response) => {
                     return response.json();
                 })
-                .then((responseData) => {
-                    console.log(responseData);
+                .then((data) => {
+                    if (data) {
+                        this.setState({
+                            artists: data.artists.items
+                        });
+                    }
                 });
         }
     }
 
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        this.searchArtist(nextProps.query);
+    }
+
     render() {
-        this.searchArtist(this.props.query);
+        let { artists } = this.state;
+        console.log(artists);
 
         let xhtml = <h3>Enter artist's name to start</h3>
 
