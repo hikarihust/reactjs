@@ -305,3 +305,17 @@ Spotify App và Access Token
 			node app.js
 		Mở trang http://localhost:8888/ thì thu được Access token
 			Sử dụng giá trị này để gọi API gửi đến Spotify thì thu được kết quả
+
+Xây dựng trang tìm kiếm Artist
+	Url
+		Sau khi tạo App xong 
+		Sửa các giá trị client_id, client_secret, redirect_uri nằm trong app.js của authorization_code
+			var client_id = 'CLIENT_ID'; // Your client id
+			var client_secret = 'CLIENT_SECRET'; // Your secret
+			var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
+		node app.js
+			Vào http://localhost:8888/
+			BQBQjvQjn6rB9pbOsUqvCT3ClusR6TxuFeroUcQFw5IDryyhugB4e7wGhbLw3eIDdTlhBFAlvAIH024fQtdLfJacss0XMlT-bMOcERGmRcpi0HjFmQzC0otSM58Gv-geMOI38KQlGyrDZ5xzQkCoan2XpO-q06NaGzhaER4eULGuKyLVag
+		Cách gửi URL:
+			Javascript fetch
+				https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
