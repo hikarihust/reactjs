@@ -326,3 +326,5 @@ Xây dựng trang tìm kiếm Artist
 	Show artist
 	Fix token
 	SpotifyFetch
+	Querystring
+		npm install query-string
