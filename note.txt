@@ -332,3 +332,4 @@ Xây dựng trang tìm kiếm Artist
 Xây dựng trang Artist
 	Get artist
 		npm axios: npm install axios
+	Show artist
