@@ -325,3 +325,4 @@ Xây dựng trang tìm kiếm Artist
 	Set artists
 	Show artist
 	Fix token
+	SpotifyFetch

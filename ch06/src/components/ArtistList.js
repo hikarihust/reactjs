@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import * as configs from './../constants/Config';
+import SpotifyFetch from './../services/SpotifyFetch';
 import Artist from './Artist';
 
 class ArtistList extends Component {
@@ -16,26 +16,13 @@ class ArtistList extends Component {
 
     searchArtist(query) {
         if (query) {
-            let url =  configs.BASE_URL + 'search?q=' + query + '&type=artist&limit=4&offset=0';
-            let config = {  
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + configs.API_KEY
-                    }
-                };
-            fetch(url, config)
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    if (data && data.artists.items) {
-                        this.setState({
-                            artists: data.artists.items
-                        });
-                    }
-                });
+            SpotifyFetch.getArtists(query).then((data) => {
+                if (data && data.artists.items) {
+                    this.setState({
+                        artists: data.artists.items
+                    });
+                }
+            });
         } else {
             this.setState({
                 artists: []
