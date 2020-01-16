@@ -335,3 +335,5 @@ Xây dựng trang Artist
 	Show artist
 	Get album
 	Show album
+
+Xây dựng trang Album
