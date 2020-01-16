@@ -343,3 +343,4 @@ Xây dựng Breadcrumb
 	Artist
 	Artist list
 	Album
+	Search enter
