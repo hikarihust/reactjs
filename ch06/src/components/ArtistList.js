@@ -34,6 +34,10 @@ class ArtistList extends Component {
         this.searchArtist(nextProps.query);
     }
 
+    UNSAFE_componentWillMount(){
+        this.searchArtist(this.props.query);
+    }
+
     render() {
         let { artists } = this.state;
         let {query} = this.props;
