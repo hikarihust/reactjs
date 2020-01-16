@@ -340,3 +340,4 @@ Xây dựng trang Album
 
 Xây dựng Breadcrumb 
 	Home
+	Artist
