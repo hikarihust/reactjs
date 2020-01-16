@@ -1,15 +1,50 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { Route, Link } from 'react-router-dom';
+
+const MenuLink = ({ menu }) => {
+	return (
+		<Route 
+			path={menu.to} 
+			exact={menu.exact} 
+			children=
+				{ 
+					({ match }) => {
+						if(match && match.isExact) {
+							return <li className="active" >{menu.name}</li>;	
+						}else {
+							return <li ><Link to={menu.to} >{menu.name}</Link></li>;
+						}
+					}
+				}
+		/>
+	)
+}
 
 class Breadcrumb extends Component {
     render() {
-        return (
-            <ol className="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/artist/4mzMFxVZNS2uCVNdsVFoj5">Thu Minh</a></li>
-                <li className="active">Giác Quan Thứ, Vol. 6</li>
-            </ol>
-        );
+
+		let menus = this.props.breadcrumb;
+        let xhtml = null;
+
+		if(menus.length > 0 ){
+			xhtml = menus.map((menu, index)=> {
+				if(menu)  {
+					return (
+						<MenuLink menu={menu} key={index} />
+					);
+				}
+				return null;
+			});
+		}
+    	return <ol className="breadcrumb">{xhtml}</ol>;
     }
 }
 
-export default Breadcrumb;
+const mapStateToProps = state => {
+    return {
+        breadcrumb: state.breadcrumb
+    }
+}
+
+export default connect(mapStateToProps, null)(Breadcrumb);

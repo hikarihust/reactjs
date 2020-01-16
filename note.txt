@@ -337,3 +337,6 @@ Xây dựng trang Artist
 	Show album
 
 Xây dựng trang Album
+
+Xây dựng Breadcrumb 
+	Home

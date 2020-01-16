@@ -38,7 +38,6 @@ class AlbumPage extends Component {
 		};
 
         album = this.state.album || album;
-        console.log(album);
 
         return (
             <div className="panel panel-danger">
