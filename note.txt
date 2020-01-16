@@ -334,3 +334,4 @@ Xây dựng trang Artist
 		npm axios: npm install axios
 	Show artist
 	Get album
+	Show album

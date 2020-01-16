@@ -41,7 +41,7 @@ class ArtistPage extends Component {
 
     render() {
         let artist = {name: '', external_urls: '', genres: [], images: [{url: ''}]};
-        let albums  = [{id: '',name: '',images: [{url: ''}, {url: ''}, {url: ''}]}];
+        let albums  = [{id: '',name: '',images: [{url: ''}]}];
 
         artist	= this.state.artist || artist;
         albums	= this.state.albums || albums;
