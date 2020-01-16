@@ -15,6 +15,21 @@ class ArtistPage extends Component {
 	UNSAFE_componentWillMount(){
         let { match } = this.props;
         let id = match.params.id;
+        this.loadArtist(id);
+        this.loadAlbums(id);
+    }
+
+    loadAlbums(id) {
+        SpotifyAxios.getAlbums(id).then((response) => { 
+            if (response && response.data) {
+                this.setState({
+                    albums: response.data.items
+                });
+            }
+        });
+    }
+    
+    loadArtist(id) {
         SpotifyAxios.getArtist(id).then((response) => { 
             if (response && response.data) {
                 this.setState({
@@ -22,12 +37,15 @@ class ArtistPage extends Component {
                 });
             }
         });
-	}
+    }
 
     render() {
         let artist = {name: '', external_urls: '', genres: [], images: [{url: ''}]};
+        let albums  = [{id: '',name: '',images: [{url: ''}, {url: ''}, {url: ''}]}];
+
         artist	= this.state.artist || artist;
-        console.log(artist);
+        albums	= this.state.albums || albums;
+
         return (
             <div className="panel panel-info">
                 <div className="panel-heading">
@@ -50,9 +68,7 @@ class ArtistPage extends Component {
                                 <div className="panel-heading">
                                     <h3 className="panel-title">List Albums</h3>
                                 </div>
-                                <div className="panel-body list-albums">
-                                    <Album />
-                                </div>
+                                { this.showAlbums(albums) }
                             </div>
                         </div>
                     </div>
@@ -60,6 +76,22 @@ class ArtistPage extends Component {
             </div>
         );
     }
+
+	showAlbums(albums){
+        let xhtml     = null;
+        if(albums && albums.length > 0 ){
+            xhtml = albums.map((album, index)=> {
+                return (
+					<Album key={index} item={album} index={index}/>
+                );
+            });
+		}
+		return (
+			<div className="panel-body list-albums">
+				{xhtml}
+		  	</div>
+		);
+	}
 
     showImage(item){
         let xhtml     = null;

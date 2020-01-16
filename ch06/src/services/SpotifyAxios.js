@@ -21,6 +21,18 @@ export default class SpotifyAxios {
         }
     }
 
+    static getAlbums(artistID){
+        let strParams = queryString.stringify({
+            offset: 0,
+            limit: 5
+        });
+
+        if (artistID) {
+            let url=`${configs.BASE_URL}artists/${artistID}/albums?${strParams}`;
+            return axios.get(url, SpotifyAxios.config).catch(SpotifyAxios.handleError); 
+        }
+    }
+
     static handleError(error){
         console.log(error);
     }
