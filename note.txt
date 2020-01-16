@@ -342,3 +342,4 @@ Xây dựng Breadcrumb
 	Home
 	Artist
 	Artist list
+	Album

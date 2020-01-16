@@ -16,11 +16,12 @@ const breadcrumb = (state = defaultState, action) => {
 
 		case types.GO_ARTIST:
 			state[1] = {to: action.to, name: action.name};
+			if(state.length > 2) state.splice(-1,1);
 			return [...state];
 			
 		case types.GO_ALBUM:
-
-			return state;
+			state[2] = {to: action.to, name: action.name};
+			return [...state];
 
 		default:
 			return state;
