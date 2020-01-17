@@ -344,3 +344,13 @@ Xây dựng Breadcrumb
 	Artist list
 	Album
 	Search enter
+
+=============================================== Project Task Manager với Firebase ===============================================
+
+Xây dựng cấu trúc ứng dụng
+	Cài đặt project: npx create-react-app ch07
+	Route
+		npm install --save react-router-dom
+	Redux
+		npm install --save react-redux
+		npm install --save redux
