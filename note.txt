@@ -358,3 +358,14 @@ Xây dựng cấu trúc ứng dụng
 Tích hợp Firebase vào ứng dụng
 	Firebase
 		npm install --save firebase
+
+Xây dựng Task Page - Task Doing
+	Firebase database
+		Rules:
+			{
+				/* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+				"rules": {
+					".read": true,
+					".write": true
+				}
+			}

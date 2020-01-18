@@ -12,3 +12,14 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+require('firebase/database');
+// firebase.database().ref('tasks/' + 'asaefefe').set({
+//     id: 4,
+//     name: 'fix 123'
+// });
+
+var starCountRef = firebase.database().ref('tasks/' + '/asaefefe');
+starCountRef.on('value', (snapshot) => {
+    console.log(snapshot.val());
+});
