@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
+import { actChangeNotify } from '../actions';
 import TaskFinishItem from './TaskFinishItem';
 import TaskFinishItemAdmin from './TaskFinishItemAdmin';
-
 import { tasksCompletedRef } from './../firebase';
 
 class TaskFinishList extends Component {
@@ -12,6 +13,10 @@ class TaskFinishList extends Component {
 		this.state = {
             items: []
 		};
+    }
+
+    handleClear = () => {
+
     }
 
     UNSAFE_componentWillMount(){
@@ -40,6 +45,9 @@ class TaskFinishList extends Component {
                         { this.showElementBody(items, isAdmin) }
                     </ul>
                 </div>
+                <div className="panel-footer text-right">
+                    <button onClick={this.handleClear} type="button" className="btn btn-danger">Clear All</button>
+                </div>
             </div>
         );
     }
@@ -50,7 +58,7 @@ class TaskFinishList extends Component {
             xhtml = items.map((item, index)=> {
                 if (isAdmin) {
                     return (
-                        <TaskFinishItemAdmin key={index } item={item} index={index}/>
+                        <TaskFinishItemAdmin changeNotify={this.props.changeNotify} key={index } item={item} index={index}/>
                     );
                 } else {
                     return (
@@ -65,4 +73,13 @@ class TaskFinishList extends Component {
 	}
 }
 
-export default TaskFinishList;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		changeNotify: (style, title, content) => {
+			dispatch(actChangeNotify(style, title, content));
+		}
+	}
+}
+
+export default connect(null, mapDispatchToProps)(TaskFinishList);
+

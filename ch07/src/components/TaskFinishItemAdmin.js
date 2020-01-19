@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import * as notify from './../constants/Notify';
+import { tasksCompletedRef } from './../firebase';
 
 class TaskFinishItemAdmin extends Component {
     handleDelete = (key) => {
-        console.log(key);
+        tasksCompletedRef.child(key).remove();
+        this.props.changeNotify(notify.NOTI_TYPE_DANGER, notify.NOTI_REMOVE_TASK_TITLE, notify.NOTI_REMOVE_TASK_MESSAGE );
     }
 
     render() {
