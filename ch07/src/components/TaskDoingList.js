@@ -34,9 +34,7 @@ class TaskDoingList extends Component {
                 </div>
                 <div className="panel-body">
                     <ul className="list-group">
-                        <TaskDoingItem />
-                        <TaskDoingItem />
-                        <TaskDoingItem />
+                        { this.showElementBody(items) }
                     </ul>
                 </div>
                 <div className="panel-footer text-right">
@@ -44,6 +42,21 @@ class TaskDoingList extends Component {
                 </div>
             </div>
         );
+    }
+
+    showElementBody(items){
+        let xhtml = null;
+        if(items.length > 0 ){
+            xhtml = items.map((item, index)=> {
+                return (
+                    <TaskDoingItem 
+                        key={index } 
+                        item={item} 
+                        index={index} />
+                );
+            });
+        }
+        return <ul className="list-group">{xhtml}</ul>;
     }
 }
 

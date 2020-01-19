@@ -3,11 +3,13 @@ import FormAddTask from './FormAddTask';
 
 class TaskDoingItem extends Component {
     render() {
+        let item = {name: '', email: ''};
+        item = this.props.item || item;
         return (                            
             <li className="list-group-item">
-                <p className="task">Login fail with email</p>
+                <p className="task">{ item.name }</p>
                 <span className="author">
-                    <span className="glyphicon glyphicon-user" aria-hidden="true" />&nbsp;admin@gmail.com
+                    <span className="glyphicon glyphicon-user" aria-hidden="true" />&nbsp;{ item.email }
                 </span>
                 <button type="button" className="btn btn-warning btn-xs">Completed</button>
             </li>

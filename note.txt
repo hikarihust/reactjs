@@ -372,3 +372,4 @@ Xây dựng Task Page - Task Doing
 	Add
 		firebase js add item
 	List Item
+	Show Item
