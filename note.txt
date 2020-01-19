@@ -375,3 +375,10 @@ Xây dựng Task Page - Task Doing
 	Show Item
 	Completed
 		js firebase remove item
+
+Xây dựng chức năng Notify
+	Alert
+		reactjs Notification
+		react-bs-notifier
+		Tham khảo source: https://github.com/chadly/react-bs-notifier
+			react-bs-notifier-master\docs\demos\alert-container(code.example)
