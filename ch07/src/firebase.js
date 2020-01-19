@@ -1,4 +1,5 @@
 import * as firebase from "firebase/app";
+require('firebase/database');
 
 const firebaseConfig = {
     apiKey: "AIzaSyB26187NLv85CHHeXmQDPGvHQ3hWzsqwW4",
@@ -12,14 +13,4 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-require('firebase/database');
-// firebase.database().ref('tasks/' + 'asaefefe').set({
-//     id: 4,
-//     name: 'fix 123'
-// });
-
-var starCountRef = firebase.database().ref('tasks/' + '/asaefefe');
-starCountRef.on('value', (snapshot) => {
-    console.log(snapshot.val());
-});
+export const tasksRef    = firebase.database().ref("tasks");

@@ -369,3 +369,5 @@ Xây dựng Task Page - Task Doing
 					".write": true
 				}
 			}
+	Add
+		firebase js add item
