@@ -5,13 +5,6 @@ import {connect} from 'react-redux';
 import { actHideNotify } from '../actions';
 
 class Notify extends Component {
-    constructor(props) {
-        super(props);
-
-        // this.state = {
-        //     isShow: true
-        // }
-    }
 
     handleDismiss = () => {
         this.props.hideNotify();
@@ -22,7 +15,7 @@ class Notify extends Component {
         if (!isShow) return null;
 
         return (
-            <AlertContainer position="top-left">
+            <AlertContainer position="top-right">
                 <Alert headline={ title } type={ style } timeout={3000} onDismiss={this.handleDismiss}>
                     { content }
                 </Alert>
