@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import FormAddTask from './FormAddTask';
+
+import { tasksCompletedRef, tasksRef } from './../firebase';
 
 class TaskDoingItem extends Component {
+
+    handleCompleted = (item) => {
+        // Remove tasks
+        tasksRef.child(item.key).remove();
+        // Add taskCompleted
+        tasksCompletedRef.push(item);
+
+    }
+
     render() {
         let item = {name: '', email: ''};
         item = this.props.item || item;
@@ -11,7 +21,7 @@ class TaskDoingItem extends Component {
                 <span className="author">
                     <span className="glyphicon glyphicon-user" aria-hidden="true" />&nbsp;{ item.email }
                 </span>
-                <button type="button" className="btn btn-warning btn-xs">Completed</button>
+                <button onClick={() => this.handleCompleted(item)} type="button" className="btn btn-warning btn-xs">Completed</button>
             </li>
         );
     }

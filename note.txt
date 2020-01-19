@@ -373,3 +373,5 @@ Xây dựng Task Page - Task Doing
 		firebase js add item
 	List Item
 	Show Item
+	Completed
+		js firebase remove item

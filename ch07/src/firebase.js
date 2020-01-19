@@ -14,3 +14,4 @@ const firebaseConfig = {
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const tasksRef    = firebase.database().ref("tasks");
+export const tasksCompletedRef  = firebase.database().ref("tasksCompleted");
