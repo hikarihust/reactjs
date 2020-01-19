@@ -389,3 +389,4 @@ Xây dựng chức năng Notify
 Task Completed 
 	List
 	Delete
+	Clear All

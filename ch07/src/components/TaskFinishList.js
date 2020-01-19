@@ -5,6 +5,7 @@ import { actChangeNotify } from '../actions';
 import TaskFinishItem from './TaskFinishItem';
 import TaskFinishItemAdmin from './TaskFinishItemAdmin';
 import { tasksCompletedRef } from './../firebase';
+import * as notify from './../constants/Notify';
 
 class TaskFinishList extends Component {
     constructor(props) {
@@ -16,7 +17,8 @@ class TaskFinishList extends Component {
     }
 
     handleClear = () => {
-
+        tasksCompletedRef.set([]);
+        this.props.changeNotify(notify.NOTI_TYPE_WARNING, notify.NOTI_CLEARALL_TASK_TITLE, notify.NOTI_CLEARALL_TASK_MESSAGE);
     }
 
     UNSAFE_componentWillMount(){

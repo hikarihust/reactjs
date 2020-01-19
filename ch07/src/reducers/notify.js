@@ -22,7 +22,6 @@ const notify = (state = defaultState, action) => {
 
 		case types.HIDE_NOTIFY:
 			state.isShow = false;
-			console.log(state);
 			return {...state};
 			
 		default:
