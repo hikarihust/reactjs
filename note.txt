@@ -390,3 +390,9 @@ Task Completed
 	List
 	Delete
 	Clear All
+
+Xây dựng Signup Page
+	General
+		The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, 
+			under the sign-in method tab of the Auth section.
+			-> Enable Email/Password
