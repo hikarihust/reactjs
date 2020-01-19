@@ -384,3 +384,4 @@ Xây dựng chức năng Notify
 			react-bs-notifier-master\docs\demos\alert-container(code.example)
 	Notify Add Task
 	Notify Completed Task
+	Notify Optimize

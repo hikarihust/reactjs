@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
+import { actChangeNotify } from '../actions';
 import FormAddTask from './FormAddTask';
 import TaskDoingItem from './TaskDoingItem';
 import { tasksRef } from './../firebase';
@@ -37,7 +40,7 @@ class TaskDoingList extends Component {
                     </ul>
                 </div>
                 <div className="panel-footer text-right">
-                    <FormAddTask />
+                    <FormAddTask changeNotify={this.props.changeNotify} />
                 </div>
             </div>
         );
@@ -51,7 +54,8 @@ class TaskDoingList extends Component {
                     <TaskDoingItem 
                         key={index } 
                         item={item} 
-                        index={index} />
+                        index={index} 
+                        changeNotify={this.props.changeNotify} />
                 );
             });
         }
@@ -59,4 +63,12 @@ class TaskDoingList extends Component {
     }
 }
 
-export default TaskDoingList;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		changeNotify: (style, title, content) => {
+			dispatch(actChangeNotify(style, title, content));
+		}
+	}
+}
+
+export default connect(null, mapDispatchToProps)(TaskDoingList);
