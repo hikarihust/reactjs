@@ -26,7 +26,6 @@ class TaskDoingList extends Component {
 
     render() {
         let { items } = this.state;
-        console.log(items);
         return (                            
             <div className="panel panel-info">
                 <div className="panel-heading">
