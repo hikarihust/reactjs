@@ -397,3 +397,4 @@ Xây dựng Signup Page
 			under the sign-in method tab of the Auth section.
 			-> Enable Email/Password
 	Custom Field
+	Save userinfo
