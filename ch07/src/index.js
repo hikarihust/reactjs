@@ -9,14 +9,14 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import appReducers from './reducers/index';
 
-import {actLogin} from './actions/index';
+import {actLogin, actLogout} from './actions/index';
 
 const store = createStore(
 	appReducers, /* preloadedState, */
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-firebaseApp.auth().onAuthStateChanged(function(user) {
+firebaseApp.auth().onAuthStateChanged((user) => {
 	if (user) {
 		// User is signed in.
 		let userInfo = {
@@ -27,10 +27,10 @@ firebaseApp.auth().onAuthStateChanged(function(user) {
 		store.dispatch(actLogin(userInfo));
 	} else {
 	  	// User is signed out.
-	  	console.log('signed out.');
+	  	store.dispatch(actLogout());
 	}
 });
-console.log(store.getState());
+
 ReactDOM.render(
 	<Provider store={store}>
         <App />

@@ -398,3 +398,4 @@ Xây dựng Signup Page
 			-> Enable Email/Password
 	Custom Field
 	Save userinfo
+	Clear userinfo
