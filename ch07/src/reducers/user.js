@@ -2,7 +2,7 @@ import * as types from './../constants/ActionType';
 
 let defaultState = {
 	isLogin: false,
-	info: {email: '', uid: '', website: ''}
+	info: {email: '', uid: '', website: '', isAdmin: false}
 };
 
 
@@ -17,7 +17,7 @@ const user = (state = defaultState, action) => {
 
 		case types.USER_LOGOUT:
 			state.isLogin = false;
-			state.info = {email: '', uid: '', website: ''};	
+			state.info = {email: '', uid: '', website: '', isAdmin: false};	
 			return {...state};
 
 		default:

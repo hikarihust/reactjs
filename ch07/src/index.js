@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-import { firebaseApp } from './firebase';
+import { firebaseApp, usersRef } from './firebase';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -21,10 +21,16 @@ firebaseApp.auth().onAuthStateChanged((user) => {
 		// User is signed in.
 		let userInfo = {
 			email: user.email,
-			uid: user.uid
+			uid: user.uid,
+			website: '',
+			isAdmin: false
 		}
-
-		store.dispatch(actLogin(userInfo));
+		usersRef.child(user.uid).once('value').then(data => {
+			let info = data.val();
+			userInfo.isAdmin = info.isAdmin;
+			userInfo.website = info.website;
+			store.dispatch(actLogin(userInfo));
+		})
 	} else {
 	  	// User is signed out.
 	  	store.dispatch(actLogout());
