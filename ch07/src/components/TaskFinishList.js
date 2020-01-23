@@ -35,7 +35,7 @@ class TaskFinishList extends Component {
 
     render() {
         let { items } = this.state;
-        let isAdmin = true;
+        let { isAdmin } = this.props.user.info;
 
         return (                                                    
             <div className="panel panel-success">
@@ -47,11 +47,20 @@ class TaskFinishList extends Component {
                         { this.showElementBody(items, isAdmin) }
                     </ul>
                 </div>
+                { this.showElementFooter(isAdmin) }
+            </div>
+        );
+    }
+
+    showElementFooter(isAdmin) {
+        if (isAdmin) {
+            return (
                 <div className="panel-footer text-right">
                     <button onClick={this.handleClear} type="button" className="btn btn-danger">Clear All</button>
                 </div>
-            </div>
-        );
+            );
+        }
+        return null;
     }
 
     showElementBody(items, isAdmin){
@@ -75,6 +84,12 @@ class TaskFinishList extends Component {
 	}
 }
 
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		changeNotify: (style, title, content) => {
@@ -83,5 +98,5 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(null, mapDispatchToProps)(TaskFinishList);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskFinishList);
 

@@ -404,3 +404,7 @@ Xây dựng Signup Page
 
 Signin
 Custom Field
+
+=============================================== Hoàn chỉnh các chức năng của ứng dụng ===============================================
+
+Delete - clear all
