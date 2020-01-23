@@ -408,3 +408,4 @@ Custom Field
 =============================================== Hoàn chỉnh các chức năng của ứng dụng ===============================================
 
 Delete - clear all
+Email user

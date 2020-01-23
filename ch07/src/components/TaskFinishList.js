@@ -84,12 +84,6 @@ class TaskFinishList extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-    return {
-        user: state.user
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
 	return {
 		changeNotify: (style, title, content) => {
@@ -98,5 +92,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskFinishList);
-
+export default connect(null, mapDispatchToProps)(TaskFinishList);
