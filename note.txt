@@ -399,3 +399,7 @@ Xây dựng Signup Page
 	Custom Field
 	Save userinfo
 	Clear userinfo
+
+=============================================== Xây dựng Signin Page ===============================================
+
+Signin

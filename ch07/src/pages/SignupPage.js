@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import FormSignup from '../components/FormSignup';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
+import FormSignup from '../components/FormSignup';
 
 class SignupPage extends Component {
     render() {
+		let {user} = this.props;
+		
+		if(user.isLogin) {
+			return <Redirect to="/user" />;
+		}
         return (                            
             <div className="panel panel-info">
                 <div className="panel-heading">
@@ -17,4 +24,10 @@ class SignupPage extends Component {
     }
 }
 
-export default SignupPage;
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps, null)(SignupPage);
