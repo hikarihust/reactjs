@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import {useRouteMatch, Link} from 'react-router-dom';
-
-const menus = [
-    {to: '/task', exact: true, name: 'Task'},
-    {to: '/user', exact: true, name: 'User'},
-    {to: '/signin', exact: true, name: 'Signin'},
-    {to: '/signup', exact: true, name: 'Signup'}
-];
+import {Route, NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 const MenuLink = ({ menu }) => {
-    let match = useRouteMatch({
-        path: menu.to,
-        exact: menu.exact
-    });
-  
-    return (
-        <li className={match ? "active" : ""}>
-            <Link to={ menu.to }>{menu.name}</Link>
-        </li>
-    );
+
+	return (
+        <Route path={menu.to} exact={menu.exact} 
+			children=
+				{ 
+					({ match }) => {
+                        let active = (match && match.isExact) ? "active" : "";
+						return (
+							<NavLink to={menu.to} className={`list-group-item ${active}`}>
+								{menu.name}
+							</NavLink>
+						)
+					}
+				}
+		/>
+	)
 }
 class Menu extends Component {
 
@@ -29,9 +29,25 @@ class Menu extends Component {
             </div>     
         );
     }
+
+	createMenu(){
+        let { user } = this.props;
+        let menus = [];
+
+		if(user.isLogin) { //login
+			menus.push({to: '/task', exact: true, name: 'Task'});
+			menus.push({to: '/user', exact: true, name: 'User'});
+		}else{
+			menus.push({to: '/signin', exact: true, name: 'Signin'});
+			menus.push({to: '/signup', exact: true, name: 'Signup'});
+		}
+
+		return menus;
+	}
     
 	showMenus(){
         let xhtml = null;
+        let menus = this.createMenu();
         
         if (menus.length > 0) {
             xhtml = menus.map((menu, index) => {  
@@ -45,4 +61,9 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, null, null, {pure:false})(Menu);

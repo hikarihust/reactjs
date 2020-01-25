@@ -411,3 +411,6 @@ Delete - clear all
 Email user
 Admin area
 Notify Optimize
+Video Menu
+	react router link not active when user redux
+		export default connect(mapStateToProps, null, null, {pure:false})(Menu);
