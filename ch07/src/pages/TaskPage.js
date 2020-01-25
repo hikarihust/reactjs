@@ -5,6 +5,8 @@ import TaskDoingList from '../components/TaskDoingList';
 import TaskFinishList from '../components/TaskFinishList';
 import TaskFinishListAdmin from '../components/TaskFinishListAdmin';
 
+import { actChangeNotify} from './../actions/index';
+
 class TaskPage extends Component {
     render() {
         let {user} = this.props;
@@ -12,7 +14,7 @@ class TaskPage extends Component {
         return (                            
             <div className="row">
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <TaskDoingList user={user} />
+                    <TaskDoingList user={user} changeNotify={this.props.changeNotify} />
                 </div>
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     { this.showTaskFinishList(user) }
@@ -23,7 +25,7 @@ class TaskPage extends Component {
 
     showTaskFinishList(user) {
         if (user.info.isAdmin) {
-            return <TaskFinishListAdmin user={user} />
+            return <TaskFinishListAdmin user={user} changeNotify={this.props.mapDispatchToProps} />
         } else {
             return <TaskFinishList user={user} />
         }
@@ -36,4 +38,12 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(TaskPage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeNotify: (style, title, content) => {
+            dispatch(actChangeNotify(style, title, content));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskPage);

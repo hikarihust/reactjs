@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 
-import { actChangeNotify } from '../actions';
 import FormAddTask from './FormAddTask';
 import TaskDoingItem from './TaskDoingItem';
 import { tasksRef } from './../firebase';
@@ -64,12 +62,4 @@ class TaskDoingList extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		changeNotify: (style, title, content) => {
-			dispatch(actChangeNotify(style, title, content));
-		}
-	}
-}
-
-export default connect(null, mapDispatchToProps)(TaskDoingList);
+export default TaskDoingList;
