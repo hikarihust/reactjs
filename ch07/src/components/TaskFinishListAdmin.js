@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-import TaskFinishItem from './TaskFinishItem';
+import { actChangeNotify } from '../actions';
+import TaskFinishItemAdmin from './TaskFinishItemAdmin';
 import { tasksCompletedRef } from './../firebase';
+import * as notify from './../constants/Notify';
 
-class TaskFinishList extends Component {
+class TaskFinishListAdmin extends Component {
     constructor(props) {
 		super(props);
 
 		this.state = {
             items: []
 		};
+    }
+
+    handleClear = () => {
+        tasksCompletedRef.set([]);
+        this.props.changeNotify(notify.NOTI_TYPE_WARNING, notify.NOTI_CLEARALL_TASK_TITLE, notify.NOTI_CLEARALL_TASK_MESSAGE);
     }
 
     UNSAFE_componentWillMount(){
@@ -37,6 +45,9 @@ class TaskFinishList extends Component {
                         { this.showElementBody(items) }
                     </ul>
                 </div>
+                <div className="panel-footer text-right">
+                    <button onClick={this.handleClear} type="button" className="btn btn-danger">Clear All</button>
+                </div>
             </div>
         );
     }
@@ -46,7 +57,7 @@ class TaskFinishList extends Component {
 		if(items.length > 0 ){
             xhtml = items.map((item, index)=> {
                 return (
-                    <TaskFinishItem key={index } item={item} index={index}/>
+                    <TaskFinishItemAdmin changeNotify={this.props.changeNotify} key={index } item={item} index={index}/>
                 );
             });
             return <ul className="list-group">{xhtml}</ul>;
@@ -56,4 +67,12 @@ class TaskFinishList extends Component {
 	}
 }
 
-export default TaskFinishList;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		changeNotify: (style, title, content) => {
+			dispatch(actChangeNotify(style, title, content));
+		}
+	}
+}
+
+export default connect(null, mapDispatchToProps)(TaskFinishListAdmin);

@@ -409,3 +409,4 @@ Custom Field
 
 Delete - clear all
 Email user
+Admin area
